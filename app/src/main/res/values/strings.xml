@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">TravelCars Drivers</string>
+    <string name="app_name_drivers">Приложение водителя</string>
+    <string name="title_home">Главная</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="no_connection_icon">Нет инитернета</string>
+    <string name="no_connection">Проверьте соединение с интернетом</string>
+    <string name="retry_button">Повторить</string>
+    <string name="personal_area">Личный кабинет</string>
+    <string name="your_email">Ваш email</string>
+    <string name="your_username">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="logout">Выйти</string>
+
+    <string name="new_trip">Новая заявка</string>
+    <string name="no_new_trip">Нет новых заявок</string>
+    <string name="new_trip_start">Отправление:</string>
+    <string name="new_trip_end">Возвращение:</string>
+    <string name="active_trips">Активные заявки</string>
+    <string name="counts">Основные разделы</string>
+    <string name="status">Статус</string>
+    <string name="booked">Забронировано</string>
+
+    <string name="counts_done">Всего заявок обработано:</string>
+    <string name="counts_active">Активные текущие заявки:</string>
+    <string name="counts_proceed">На рассмотрении:</string>
+    <string name="counts_rejected">Откланенных заявок:</string>
+    <string name="no_active_trips">Нет активных заявок</string>
+    <string name="no_trips_label">Нет заявок</string>
+    <string name="no_routes">Нет маршрутов</string>
+
+    <string name="trips">Заявки</string>
+    <string name="trips_done">Обработанные</string>
+    <string name="trips_active">Текущие</string>
+    <string name="trips_proceed">На рассмотрении</string>
+    <string name="trips_rejected">Откланенные</string>
+
+    <string name="booking_toolbar_title">Текущая поездка</string>
+    <string name="booking_tab_client">Заказчик</string>
+    <string name="booking_tab_route">Детали поездки</string>
+    <string name="client">Клиент</string>
+    <string name="price">Стоимость поездки</string>
+    <string name="payStatus">Статус оплаты</string>
+    <string name="car_name">Авто</string>
+    <string name="point_a">Пункт А</string>
+    <string name="point_b">Пункт Б</string>
+    <string name="point_c">Пункт В</string>
+    <string name="comment">Коментарий клиента</string>
+    <string name="paid">Оплачено</string>
+    <string name="not_paid">Не оплачено</string>
+    <string name="no_comment">Нет коментариев</string>
+    <string name="calendar">Календарь</string>
+
+    <string name="user_name">ФИО</string>
+    <string name="user_licence">Номер вод. прав</string>
+    <string name="profile_username">Логин</string>
+    <string name="user_email">E-mail</string>
+    <string name="user_phone">Телефон</string>
+    <string name="user_birthday">Дата рождения</string>
+    <string name="n_a">Не указан</string>
+
+    <string name="set_password">Пароль</string>
+    <string name="set_pin">Пин</string>
+    <string name="current_password">Текущий пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="confirm_new_password">Подтвердите пароль</string>
+    <string name="current_pin">Текущий пин</string>
+    <string name="new_pin">Новый пин</string>
+    <string name="confirm_new_pin">Подтвердите пин</string>
+    <string name="edit">Изменить</string>
+    <string name="save">Установить</string>
+    <string name="pin_not_confirm">Пины не совпадают</string>
+    <string name="current_pin_wrong">Текущий пин не верный</string>
+    <string name="pin_set">Пин установлен</string>
+    <string name="pin_error_min">Пин должен состоять минимум из 4х символов</string>
+    <string name="password_error_min">Пароль должен состоять минимум из 6х символов</string>
+    <string name="input_pin">Введите ваш ПИН-код</string>
+    <string name="wrong_input">Не верный ПИН-код</string>
+    <string name="reviews">Отзывы</string>
+    <string name="review">Отзыв</string>
+    <string name="rating">Оценка</string>
+    <string name="routes">Маршруты</string>
+
+    <string name="config">config</string>
+    <string name="auth_key">auth_key</string>
+    <string name="pin_key">pin_key</string>
+    <string name="fcmToken">fcmToken</string>
+    <string name="pin_status">pin_status</string>
+    <string name="error_auth">Неверный логин или пароль</string>
+    <string name="request_error">Не удалось соединиться с сервером. Повторите попытку позже</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_booking">BookingActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_pin">PinActivity</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+</resources>

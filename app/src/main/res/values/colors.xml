@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#074891</color>
+    <color name="colorPrimaryDark">#074891</color>
+    <color name="colorAccent">#2cc197</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="textColor">#353a41</color>
+    <color name="blockTitleTextColor">#9fa7b3</color>
+    <color name="textWhite">#ffffff</color>
+    <color name="textBlack">#353a41</color>
+    <color name="buttonBackgroundColor">#ffce43</color>
+    <color name="buttonTextColor">#353a41</color>
+    <color name="colorTint">#80000000</color>
+    <color name="default_circle_indicator_fill_color">#2cc197</color>
+    <color name="default_circle_indicator_page_color">#fff</color>
+    <color name="default_circle_indicator_stroke_color">#fff</color>
+    <color name="bodyBackgroundColor">#f6f9fc</color>
+    <color name="tabBackground">#114a81</color>
+    <color name="textGrey">#70757b</color>
+    <color name="textMuted">#c6cbd3</color>
+</resources>

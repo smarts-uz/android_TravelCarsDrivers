@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="235dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/car_name"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:layout_height="wrap_content" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@id/car_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardElevation="1dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false"
+            android:layout_width="0dp"
+            android:layout_marginTop="16dp"
+            app:contentPadding="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:cardCornerRadius="5dp"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/banner"
+                android:padding="16dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/new_trip_label"
+                    android:layout_width="0dp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_trip" />
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/new_trip_label"
+                    android:id="@+id/new_trip_cities"
+                    android:layout_width="0dp"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/new_trip_cities"
+                    android:id="@+id/new_trip_start"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="0dp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_trip_start" />
+                <TextView
+                    app:layout_constraintStart_toEndOf="@id/new_trip_start"
+                    app:layout_constraintTop_toBottomOf="@id/new_trip_cities"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/new_trip_date"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toBottomOf="@id/new_trip_start"
+                    android:id="@+id/new_trip_end"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="0dp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_trip_end" />
+                <TextView
+                    app:layout_constraintStart_toEndOf="@id/new_trip_end"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toBottomOf="@id/new_trip_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/new_trip_date_reverse"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

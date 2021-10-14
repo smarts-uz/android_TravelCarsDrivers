@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tabBar"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".BookingActivity"
+    tools:showIn="@layout/activity_booking">
+
+    <ScrollView
+        android:id="@+id/client_view"
+        android:background="@color/bodyBackgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/client"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/client" />
+
+            <TextView
+                android:id="@+id/client_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/client_id"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/textMuted"-->
+                <!--android:text="" />-->
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/price_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/price" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+            <TextView
+                android:id="@+id/status_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/payStatus" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/review_label"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/review" />
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+            <TextView
+                android:id="@+id/review"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider10"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ScrollView
+        android:id="@+id/route_view"
+        android:background="@color/bodyBackgroundColor"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical" >
+
+
+
+            <TextView
+                android:id="@+id/car_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/car_name" />
+
+            <TextView
+                android:id="@+id/car_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/textGrey"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/point_a_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/point_a" />
+
+            <TextView
+                android:id="@+id/point_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/textGrey"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/point_b_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/point_b" />
+
+            <TextView
+                android:id="@+id/point_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+            <TextView
+                android:id="@+id/point_c_label"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/point_c" />
+
+            <TextView
+                android:id="@+id/point_c"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider7"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/comment_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/textBlack"
+                android:layout_marginBottom="10dp"
+                android:text="@string/comment" />
+
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textGrey"
+                android:layout_marginBottom="10dp"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
