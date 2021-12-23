@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TripsActivity">
+    tools:context=".ui.activity.TripsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -89,7 +89,7 @@
         app:layout_constraintBottom_toTopOf="@id/trip_nav_view"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/activity_main_swipe"
-        tools:context=".MainActivity">
+        tools:context=".ui.activity.MainActivity">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/booking_list"
             android:layout_width="match_parent"

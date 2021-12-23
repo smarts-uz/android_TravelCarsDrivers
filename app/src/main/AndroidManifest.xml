@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACTION_DIAL" />
 
     <application
+        android:name="uz.qwerty.travelcarsdrivers.ui.app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,50 +15,50 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <service android:name=".service.FMessagingService">
+        <service android:name="uz.qwerty.travelcarsdrivers.util.service.FMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <activity
-            android:name=".CalendarActivity"
+            android:name=".ui.activity.CalendarActivity"
             android:label="@string/title_activity_calendar"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".PinActivity"
+            android:name=".ui.activity.PinActivity"
             android:label="@string/title_activity_pin"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ui.activity.ProfileActivity"
             android:label="@string/title_activity_profile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BookingActivity"
-            android:parentActivityName=".TripsActivity"
+            android:name=".ui.activity.BookingActivity"
+            android:parentActivityName=".ui.activity.TripsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="uz.qwerty.travelcarsdrivers.TripsActivity" />
+                android:value="uz.qwerty.travelcarsdrivers.ui.activity.TripsActivity" />
         </activity>
         <activity
-            android:name=".TripsActivity"
+            android:name=".ui.activity.TripsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NoConnectionActivity"
+            android:name=".ui.activity.NoConnectionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher">

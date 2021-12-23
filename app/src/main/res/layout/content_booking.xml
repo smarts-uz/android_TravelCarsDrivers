@@ -9,7 +9,7 @@
     app:layout_constraintTop_toBottomOf="@id/tabBar"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".BookingActivity"
+    tools:context=".ui.activity.BookingActivity"
     tools:showIn="@layout/activity_booking">
 
     <ScrollView
