@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.adapters
+package uz.qwerty.travelcarsdrivers.presentation.ui.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_calendar.*
-import uz.qwerty.travelcarsdrivers.ui.activity.BookingActivity
+import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.models.Route

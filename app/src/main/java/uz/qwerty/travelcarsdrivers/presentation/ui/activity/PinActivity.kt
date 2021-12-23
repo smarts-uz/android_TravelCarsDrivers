@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.activity
+package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
 import android.content.Context
 import android.content.Intent

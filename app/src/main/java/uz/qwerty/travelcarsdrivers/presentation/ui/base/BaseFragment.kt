@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.base
+package uz.qwerty.travelcarsdrivers.presentation.ui.base
 
 import android.content.Intent
 import android.net.Uri
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.readystatesoftware.chuck.internal.ui.MainActivity
-import uz.qwerty.travelcarsdrivers.ui.extensions.hideKeyboard
+import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.hideKeyboard
 
 
 /**

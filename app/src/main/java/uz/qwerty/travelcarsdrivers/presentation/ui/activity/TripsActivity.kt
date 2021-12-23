@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.activity
+package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.activity_trips.*
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.repository.NetworkState
-import uz.qwerty.travelcarsdrivers.ui.adapters.BookingAdapter
-import uz.qwerty.travelcarsdrivers.ui.adapters.BookingViewModel
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingAdapter
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingViewModel
 import uz.qwerty.travelcarsdrivers.util.ListItemClickListener
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import uz.qwerty.travelcarsdrivers.domain.models.Booking

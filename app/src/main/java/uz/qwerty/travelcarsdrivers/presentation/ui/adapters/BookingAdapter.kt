@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.adapters
+package uz.qwerty.travelcarsdrivers.presentation.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View

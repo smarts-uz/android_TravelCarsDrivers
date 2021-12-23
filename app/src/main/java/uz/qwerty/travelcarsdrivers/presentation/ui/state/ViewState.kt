@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.state
+package uz.qwerty.travelcarsdrivers.presentation.ui.state
 
 
 /**

@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.activity
+package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -16,8 +16,8 @@ import ru.lexcorp.autoscrollviewpager.AutoScrollViewPager
 import ru.lexcorp.viewpagerindicator.CirclePageIndicator
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
-import uz.qwerty.travelcarsdrivers.ui.adapters.BookingActiveAdapter
-import uz.qwerty.travelcarsdrivers.ui.adapters.BookingBannerAdapter
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingActiveAdapter
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingBannerAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import uz.qwerty.travelcarsdrivers.domain.models.User
 

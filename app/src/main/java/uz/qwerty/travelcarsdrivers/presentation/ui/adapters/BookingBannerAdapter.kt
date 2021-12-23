@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.adapters
+package uz.qwerty.travelcarsdrivers.presentation.ui.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
-import uz.qwerty.travelcarsdrivers.ui.activity.BookingActivity
+import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.domain.models.Booking
 import uz.qwerty.travelcarsdrivers.R
 

@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.ui.activity
+package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_calendar.*
 import kotlinx.android.synthetic.main.content_calendar.*
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
-import uz.qwerty.travelcarsdrivers.ui.adapters.RouteAdapter
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.RouteAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import java.util.*
 
