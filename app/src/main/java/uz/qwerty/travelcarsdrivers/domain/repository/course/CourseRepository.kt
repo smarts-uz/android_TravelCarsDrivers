@@ -1,5 +1,9 @@
 package uz.qwerty.travelcarsdrivers.domain.repository.course
 
+import retrofit2.Response
+import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.ViewState
+
 
 /**
  * Created by Abdurashidov Shahzod on 24/12/21 21:46.
@@ -7,6 +11,6 @@ package uz.qwerty.travelcarsdrivers.domain.repository.course
  * shahzod9933@gmail.com
  */
 
-class CourseRepository {
-
+interface CourseRepository {
+    suspend fun getCourse(): ViewState
 }
