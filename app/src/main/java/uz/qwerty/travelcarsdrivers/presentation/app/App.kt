@@ -18,6 +18,12 @@ class App : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+        instance = this
         super.onCreate()
+
+    }
+
+    companion object {
+        lateinit var instance: App
     }
 }
