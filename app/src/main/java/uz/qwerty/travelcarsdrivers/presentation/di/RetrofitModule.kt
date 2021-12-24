@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uz.qwerty.travelcarsdrivers.data.remote.api.Config.VALYUT
+import uz.qwerty.travelcarsdrivers.util.Config.VALYUT
 import uz.qwerty.travelcarsdrivers.util.isConnected
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton

@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.data.remote.api
+package uz.qwerty.travelcarsdrivers.util
 
 object Config {
     //const val baseUrl = "https://api.travelcars.uz"

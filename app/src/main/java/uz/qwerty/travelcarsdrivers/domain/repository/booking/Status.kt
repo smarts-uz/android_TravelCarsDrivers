@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.domain.repository
+package uz.qwerty.travelcarsdrivers.domain.repository.booking
 
 enum class Status {
     RUNNING,

@@ -5,7 +5,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import uz.qwerty.travelcarsdrivers.domain.repository.NetworkState
+import uz.qwerty.travelcarsdrivers.domain.repository.booking.NetworkState
 import uz.qwerty.travelcarsdrivers.domain.repository.booking.BookingDataFactory
 import uz.qwerty.travelcarsdrivers.domain.repository.booking.PageKeyedBookingDataSource
 import uz.qwerty.travelcarsdrivers.domain.models.Booking

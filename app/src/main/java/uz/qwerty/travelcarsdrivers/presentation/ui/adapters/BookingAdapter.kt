@@ -10,8 +10,8 @@ import androidx.cardview.widget.CardView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.domain.repository.NetworkState
-import uz.qwerty.travelcarsdrivers.domain.repository.Status
+import uz.qwerty.travelcarsdrivers.domain.repository.booking.NetworkState
+import uz.qwerty.travelcarsdrivers.domain.repository.booking.Status
 import uz.qwerty.travelcarsdrivers.util.ListItemClickListener
 import uz.qwerty.travelcarsdrivers.domain.models.Booking
 

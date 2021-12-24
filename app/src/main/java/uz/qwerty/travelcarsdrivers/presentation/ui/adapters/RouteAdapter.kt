@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_calendar.*
 import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.models.Route
 
 class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

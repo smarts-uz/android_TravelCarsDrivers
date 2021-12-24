@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import ru.lexcorp.autoscrollviewpager.AutoScrollViewPager
 import ru.lexcorp.viewpagerindicator.CirclePageIndicator
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingActiveAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingBannerAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks

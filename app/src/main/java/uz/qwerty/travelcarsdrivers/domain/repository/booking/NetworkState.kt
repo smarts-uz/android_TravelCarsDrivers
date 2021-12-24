@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.domain.repository
+package uz.qwerty.travelcarsdrivers.domain.repository.booking
 
 class NetworkState(val sts: Status, val mes: String) {
     companion object {

@@ -13,7 +13,7 @@ import androidx.core.widget.addTextChangedListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 
 class LoginActivity : AppCompatActivity() {

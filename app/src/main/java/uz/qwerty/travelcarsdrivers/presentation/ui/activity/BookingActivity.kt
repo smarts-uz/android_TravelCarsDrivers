@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_booking.tabBar
 import kotlinx.android.synthetic.main.content_booking.*
 import uz.qwerty.travelcarsdrivers.R
 
-import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import uz.qwerty.travelcarsdrivers.domain.models.User
 

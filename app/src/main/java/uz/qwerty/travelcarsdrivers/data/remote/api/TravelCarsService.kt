@@ -3,7 +3,7 @@ package uz.qwerty.travelcarsdrivers.data.remote.api
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
-import uz.qwerty.travelcarsdrivers.data.remote.api.response.*
+import uz.qwerty.travelcarsdrivers.data.remote.response.main.*
 
 interface TravelCarsService {
     @Headers("Accept: application/json", "Content-Type: application/json", "Content-Language: ru")
