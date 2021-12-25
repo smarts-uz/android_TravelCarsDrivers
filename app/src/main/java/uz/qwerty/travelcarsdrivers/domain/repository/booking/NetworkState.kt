@@ -1,5 +1,7 @@
 package uz.qwerty.travelcarsdrivers.domain.repository.booking
 
+import uz.qwerty.travelcarsdrivers.util.Status
+
 class NetworkState(val sts: Status, val mes: String) {
     companion object {
         var LOADED: NetworkState = NetworkState(Status.SUCCESS, "Success")
