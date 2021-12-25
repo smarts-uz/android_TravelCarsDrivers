@@ -8,6 +8,10 @@
         <entry key="..\:/TravelCarsDrivers/app/src/main/res/layout/activity_profile.xml" value="0.18" />
         <entry key="..\:/TravelCarsDrivers/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18" />
         <entry key="..\:/TravelCarsDrivers/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2169230769230769" />
+        <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.1685185185185185" />
+        <entry key="app/src/main/res/layout/activity_no_connection.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/layout/activity_trips.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/content_calendar.xml" value="0.25" />
       </map>
     </option>
   </component>

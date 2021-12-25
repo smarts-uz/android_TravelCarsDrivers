@@ -1,7 +1,10 @@
 package uz.qwerty.travelcarsdrivers.domain.repository.course
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.ServerError
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Success
@@ -30,4 +33,18 @@ class CourseRepositoryImpl @Inject constructor(
             Fail(e)
         }
     }
+
+    override fun getCourseAll(): Flow<Result<CourseResponse>> = flow {
+//        try {
+//            val response = api.getCourse()
+//            if (response.code()==200) response.body()?.let{
+//                emit(Result.success(response.body()))
+//            }else{
+//
+//            }
+//        }catch (e:Exception){
+//            Result.failure<Exception>(e)
+//        }
+    }
+
 }

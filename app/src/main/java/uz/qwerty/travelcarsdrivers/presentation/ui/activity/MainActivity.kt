@@ -6,24 +6,35 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.lexcorp.autoscrollviewpager.AutoScrollViewPager
 import ru.lexcorp.viewpagerindicator.CirclePageIndicator
 import uz.qwerty.travelcarsdrivers.R
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
 import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingActiveAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingBannerAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import uz.qwerty.travelcarsdrivers.domain.models.User
+import uz.qwerty.travelcarsdrivers.presentation.ui.common.course.CourseViewModel
+import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.Loading
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.ServerError
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.Success
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-
+    private val vm: CourseViewModel by viewModels()
     var apiService = TravelCarsApi.createService(true)
     private var doubleBackToExitPressedOnce = false
     private lateinit var user: User
@@ -35,37 +46,41 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var activeAdapter: BookingActiveAdapter
 
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                return@OnNavigationItemSelectedListener true
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_dashboard -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_clock -> {
+                    val intent = Intent(this, TripsActivity::class.java)
+                    intent.putExtra("type", "review")
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_stats -> {
+                    val intent = Intent(this, CalendarActivity::class.java)
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
             }
-            R.id.navigation_dashboard -> {
-                val intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_clock -> {
-                val intent = Intent(this, TripsActivity::class.java)
-                intent.putExtra("type", "review")
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_stats -> {
-                val intent = Intent(this, CalendarActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
+            false
         }
-        false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        addObservers()
+        vm.getAllCourse()
 
-        val sharedPref = this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
+        val sharedPref =
+            this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
         val authKey = sharedPref.getString(getString(R.string.auth_key), null)
         val pin = sharedPref.getString(getString(R.string.pin_key), null)
         val pin_status = sharedPref.getString(getString(R.string.pin_status), null)
@@ -137,6 +152,26 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
+    private fun addObservers() {
+        vm.courseLiveData.observe(this, Observer {
+            when (it) {
+                is Fail -> {
+                    //showToast()
+                }
+                is ServerError -> {
+                    //showToast()
+                }
+                is Loading -> {}
+                is Success<*> -> {
+                    val courseAll = it.data as CourseResponse
+                    showToast(courseAll.toString())
+                }
+                else -> Unit
+
+            }
+        })
+    }
+
 
     override fun onRestart() {
         super.onRestart()
@@ -169,13 +204,11 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    private fun setTitle(name: String?)
-    {
+    private fun setTitle(name: String?) {
         toolbar_title.text = name
     }
 
-    private fun getActives(apiKey: String?)
-    {
+    private fun getActives(apiKey: String?) {
         apiService.lastActive(apiKey)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
@@ -197,8 +230,7 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    private fun getBanners(apiKey: String?)
-    {
+    private fun getBanners(apiKey: String?) {
         apiService.tripsBanners(apiKey)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
@@ -223,18 +255,20 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    private fun getCounts(apiKey: String?)
-    {
+    private fun getCounts(apiKey: String?) {
         apiService.counts(apiKey)
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 if (it.isSuccessful && it.code() == 200) {
-                    counts_active.text = counts_active.text.toString() + " " + it.body()!!.data.active.toString()
-                    counts_done.text = counts_done.text.toString() + " " +  it.body()!!.data.done.toString()
+                    counts_active.text =
+                        counts_active.text.toString() + " " + it.body()!!.data.active.toString()
+                    counts_done.text =
+                        counts_done.text.toString() + " " + it.body()!!.data.done.toString()
 //                    counts_rejected.text = counts_rejected.text.toString() + " " +  it.body()!!.data.rejected.toString()
-                    counts_proceed.text = counts_proceed.text.toString() + " " +  it.body()!!.data.proceed.toString()
+                    counts_proceed.text =
+                        counts_proceed.text.toString() + " " + it.body()!!.data.proceed.toString()
                 } else {
                     counts_active.text = counts_active.text.toString() + " 0"
                     counts_done.text = counts_done.text.toString() + " 0"
@@ -266,7 +300,9 @@ class MainActivity : AppCompatActivity() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
 
-            val sharedPref = this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
+            val sharedPref =
+                this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE)
+                    ?: return
             val editor = sharedPref.edit()
             editor.putString(getString(R.string.pin_status), null)
             editor.apply()
@@ -294,7 +330,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        val sharedPref = this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
+        val sharedPref =
+            this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
         val editor = sharedPref.edit()
         editor.putString(getString(R.string.pin_status), null)
         editor.apply()

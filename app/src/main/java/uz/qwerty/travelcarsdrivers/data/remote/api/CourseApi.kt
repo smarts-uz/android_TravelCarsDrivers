@@ -13,5 +13,5 @@ import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
 
 interface CourseApi {
     @GET("json/")
-    suspend fun getCourse():Response<CourseResponse>
+    suspend fun getCourse():Response<CourseResponse?>
 }

@@ -1,5 +1,8 @@
 package uz.qwerty.travelcarsdrivers.data.remote.response.course
 
+import androidx.annotation.Keep
+
+@Keep
 data class CourseResponseItem(
     val Ccy: String,
     val CcyNm_EN: String,
