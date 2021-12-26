@@ -97,4 +97,12 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_pin">PinActivity</string>
     <string name="title_activity_calendar">CalendarActivity</string>
+
+
+    <!-- Messages in screen -->
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="message">Message</string>
+    <string name="operation_success">Operation success finished</string>
+    <string name="not_connection">There is no internet connection"</string>
 </resources>

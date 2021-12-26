@@ -3,8 +3,11 @@ package uz.qwerty.travelcarsdrivers.domain.repository.course
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
+import timber.log.Timber
+import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
+import uz.qwerty.travelcarsdrivers.presentation.app.App
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.ServerError
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Success
@@ -35,16 +38,17 @@ class CourseRepositoryImpl @Inject constructor(
     }
 
     override fun getCourseAll(): Flow<Result<CourseResponse>> = flow {
-//        try {
-//            val response = api.getCourse()
-//            if (response.code()==200) response.body()?.let{
-//                emit(Result.success(response.body()))
-//            }else{
-//
-//            }
-//        }catch (e:Exception){
-//            Result.failure<Exception>(e)
-//        }
+        try {
+            val responseCourse = api.getCourse()
+            if (responseCourse.code() == 200) responseCourse.body()?.let {
+                emit(Result.success(it))
+            } else {
+                emit(Result.failure<CourseResponse>(Exception(App.instance.getString(R.string.error))))
+            }
+        } catch (e: Exception) {
+            Timber.e("Repository in function refreshToken error = $e")
+            emit(Result.failure<CourseResponse>(e))
+        }
     }
 
 }

@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.flow.collect
 import ru.lexcorp.autoscrollviewpager.AutoScrollViewPager
 import ru.lexcorp.viewpagerindicator.CirclePageIndicator
 import uz.qwerty.travelcarsdrivers.R
@@ -77,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addObservers()
-        vm.getAllCourse()
+        //vm.getCourse()
 
         val sharedPref =
             this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
@@ -170,6 +172,25 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+        lifecycleScope.launchWhenStarted {
+            vm.courseState.collect {
+                when (it) {
+                    is Fail -> {
+                        //showToast()
+                    }
+                    is ServerError -> {
+                        //showToast()
+                    }
+                    is Loading -> {}
+                    is Success<*> -> {
+                        val courseAll = it.data as CourseResponse
+                        showToast(courseAll.toString())
+                    }
+                    else -> Unit
+
+                }
+            }
+        }
     }
 
 
