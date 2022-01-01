@@ -1,73 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uz.qwerty.travelcarsdrivers">
+    package="uz.qwerty.travelcarsdrivers" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACTION_DIAL" />
 
     <application
-        android:name="uz.qwerty.travelcarsdrivers.presentation.app.App"
+        android:name=".presentation.app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-
-        <service android:name="uz.qwerty.travelcarsdrivers.util.service.FMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
+        android:usesCleartextTraffic="true" >
         <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.CalendarActivity"
-            android:label="@string/title_activity_calendar"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.PinActivity"
-            android:label="@string/title_activity_pin"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.ProfileActivity"
-            android:label="@string/title_activity_profile"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity"
-            android:parentActivityName="uz.qwerty.travelcarsdrivers.presentation.ui.activity.TripsActivity"
-            android:screenOrientation="portrait"
+            android:name=".presentation.ui.activity.CourseActivity"
+            android:exported="true"
+            android:label="@string/title_activity_course"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="uz.qwerty.travelcarsdrivers.presentation.ui.activity.TripsActivity" />
-        </activity>
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.TripsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.NoConnectionActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="uz.qwerty.travelcarsdrivers.presentation.ui.activity.MainActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Launcher">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".util.service.FMessagingService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".presentation.ui.activity.CalendarActivity"
+            android:label="@string/title_activity_calendar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.ui.activity.PinActivity"
+            android:label="@string/title_activity_pin"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.ui.activity.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.ui.activity.BookingActivity"
+            android:parentActivityName=".presentation.ui.activity.TripsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uz.qwerty.travelcarsdrivers.presentation.ui.activity.TripsActivity" />
+        </activity>
+        <activity
+            android:name=".presentation.ui.activity.TripsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.ui.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.ui.activity.NoConnectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.ui.activity.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

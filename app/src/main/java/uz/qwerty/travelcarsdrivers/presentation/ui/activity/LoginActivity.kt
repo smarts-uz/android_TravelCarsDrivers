@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseItem
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
 import uz.qwerty.travelcarsdrivers.presentation.ui.common.course.CourseViewModel
 import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
@@ -110,8 +110,8 @@ class LoginActivity : AppCompatActivity() {
                 is Loading -> {}
                 is Success<*> -> {
                     showToast("Success!!!")
-//                    val data = it.data as List<CourseResponseItem>
-//                    showToast(data[0].CcyNm_UZC)
+                    val data = it.data as CurrencyResponseItem
+                    showToast(data.toString())
                 }
                 else -> Unit
 

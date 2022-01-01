@@ -1,9 +1,12 @@
 package uz.qwerty.travelcarsdrivers.data.remote.response.course
 
+import android.os.Parcelable
 import androidx.annotation.Keep
+import kotlinx.android.parcel.Parcelize
 
 @Keep
-data class CourseResponseItem(
+@Parcelize
+data class CurrencyResponseItem(
     val Ccy: String,
     val CcyNm_EN: String,
     val CcyNm_RU: String,
@@ -15,4 +18,4 @@ data class CourseResponseItem(
     val Nominal: String,
     val Rate: String,
     val id: Int
-)
+) : Parcelable

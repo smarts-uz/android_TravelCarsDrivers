@@ -24,7 +24,10 @@ class BookingBannerAdapter : PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val holder = BannerViewHolder(LayoutInflater.from(container.context).inflate(R.layout.item_banner_layout, container, false), container)
+        val holder = BannerViewHolder(
+            LayoutInflater.from(container.context)
+                .inflate(R.layout.item_banner_layout, container, false), container
+        )
         holder.bindModel(banners[position])
         container.addView(holder.itemView)
         return holder.itemView
@@ -33,7 +36,8 @@ class BookingBannerAdapter : PagerAdapter() {
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
     }
 
-    inner class BannerViewHolder(itemView: View, parent: ViewGroup) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class BannerViewHolder(itemView: View, parent: ViewGroup) :
+        RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var id: Int = 0
         private val cities: TextView = itemView.findViewById(R.id.new_trip_cities)
         private val date: TextView = itemView.findViewById(R.id.new_trip_date)

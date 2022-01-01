@@ -59,7 +59,7 @@ class RetrofitModule {
             val request = requestOld.newBuilder()
                 .removeHeader("Authorization")//additional
                 //.addHeader("Authorization", "Bearer " + storage.token)
-                .method(requestOld.method(), requestOld.body())
+                .method(requestOld.method, requestOld.body)
                 .build()
             val response = it.proceed(request)
             response

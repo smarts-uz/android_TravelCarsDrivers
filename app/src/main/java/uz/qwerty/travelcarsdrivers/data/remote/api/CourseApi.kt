@@ -2,9 +2,9 @@ package uz.qwerty.travelcarsdrivers.data.remote.api
 
 import retrofit2.Response
 import retrofit2.http.GET
-import uz.qwerty.travelcarsdrivers.data.remote.api.baseresponse.BaseResponse
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseItem
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponse
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
 
 
 /**
@@ -15,5 +15,12 @@ import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseIte
 
 interface CourseApi {
     @GET("json/")
-    suspend fun getCourse(): BaseResponse<List<CourseResponseItem>>
+    suspend fun getCourse(): Response<List<CurrencyResponseItem>>
+
+    @GET("json/")
+    suspend fun getAllCourse(): Response<CurrencyResponse>
+
+    @GET("json/")
+    suspend fun getCurrency(): Response<List<CurrencyItem>>
+
 }

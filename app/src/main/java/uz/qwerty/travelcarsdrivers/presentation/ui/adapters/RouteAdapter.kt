@@ -22,7 +22,9 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val banners: MutableList<Route> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return RouteViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_route_list, parent, false))
+        return RouteViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_route_list, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -35,7 +37,8 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    inner class RouteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class RouteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         var id: Int = 0
         var booking_id: Int? = null
         private val cities: TextView = itemView.findViewById(R.id.trip_cities)
@@ -67,11 +70,12 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 }
             }
 
-            if(banner.booked == 0) {
+            if (banner.booked == 0) {
                 status.setOnCheckedChangeListener { buttonView, isChecked ->
 
-                    val sharedPref = itemView.context.getSharedPreferences("config", Context.MODE_PRIVATE)
-                        ?: return@setOnCheckedChangeListener
+                    val sharedPref =
+                        itemView.context.getSharedPreferences("config", Context.MODE_PRIVATE)
+                            ?: return@setOnCheckedChangeListener
                     val authKey = sharedPref.getString("auth_key", null)
 
                     val apiService = TravelCarsApi.createService(true)
@@ -82,7 +86,11 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({
                             if (it.isSuccessful && it.code() == 200) {
-                                banner.status = if(banner.status == 1) {0} else {1}
+                                banner.status = if (banner.status == 1) {
+                                    0
+                                } else {
+                                    1
+                                }
                                 val toast =
                                     Toast.makeText(
                                         itemView.context,

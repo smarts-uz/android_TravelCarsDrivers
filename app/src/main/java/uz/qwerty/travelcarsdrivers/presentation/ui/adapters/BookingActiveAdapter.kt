@@ -14,19 +14,23 @@ class BookingActiveAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val banners: MutableList<Booking> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ActiveTripViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_actives_layout, parent, false))
+        return ActiveTripViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_actives_layout, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
         return banners.size
     }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ActiveTripViewHolder -> holder.bindModel(banners[position])
         }
     }
 
-    inner class ActiveTripViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ActiveTripViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         var id: Int = 0
         private val city_from: TextView = itemView.findViewById(R.id.city_from)
         private val city_to: TextView = itemView.findViewById(R.id.city_to)

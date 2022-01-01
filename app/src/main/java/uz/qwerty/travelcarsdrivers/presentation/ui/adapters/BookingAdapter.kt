@@ -65,9 +65,15 @@ class BookingAdapter(private val itemClickListener: ListItemClickListener) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
-            R.layout.item_booking_list -> (holder as BookingItemViewHolder).bindModel(getItem(position))
+            R.layout.item_booking_list -> (holder as BookingItemViewHolder).bindModel(
+                getItem(
+                    position
+                )
+            )
             R.layout.item_review_list -> (holder as ReviewItemViewHolder).bindModel(getItem(position))
-            R.layout.item_network_state -> (holder as NetworkStateItemViewHolder).bindView(networkState)
+            R.layout.item_network_state -> (holder as NetworkStateItemViewHolder).bindView(
+                networkState
+            )
         }
     }
 
@@ -78,14 +84,18 @@ class BookingAdapter(private val itemClickListener: ListItemClickListener) :
     override fun getItemViewType(position: Int): Int {
         return if (hasExtraRow() && position == itemCount - 1) {
             R.layout.item_network_state
-        } else if(review) {
+        } else if (review) {
             R.layout.item_review_list
         } else {
             R.layout.item_booking_list
         }
     }
 
-    internal class BookingItemViewHolder(itemView: View, parent: ViewGroup, listItemClickListener: ListItemClickListener) : RecyclerView.ViewHolder(itemView) {
+    internal class BookingItemViewHolder(
+        itemView: View,
+        parent: ViewGroup,
+        listItemClickListener: ListItemClickListener
+    ) : RecyclerView.ViewHolder(itemView) {
         var id: Int = 0
         private val cities: TextView = itemView.findViewById(R.id.trip_cities)
         private val date: TextView = itemView.findViewById(R.id.trip_date)
@@ -123,7 +133,11 @@ class BookingAdapter(private val itemClickListener: ListItemClickListener) :
         }
     }
 
-    internal class ReviewItemViewHolder(itemView: View, parent: ViewGroup, listItemClickListener: ListItemClickListener) : RecyclerView.ViewHolder(itemView) {
+    internal class ReviewItemViewHolder(
+        itemView: View,
+        parent: ViewGroup,
+        listItemClickListener: ListItemClickListener
+    ) : RecyclerView.ViewHolder(itemView) {
         var id: Int = 0
         private val cities: TextView = itemView.findViewById(R.id.trip_cities)
         private val car_name: TextView = itemView.findViewById(R.id.trip_car)
@@ -143,7 +157,10 @@ class BookingAdapter(private val itemClickListener: ListItemClickListener) :
         }
     }
 
-    internal class NetworkStateItemViewHolder(itemView: View, listItemClickListener: ListItemClickListener) :
+    internal class NetworkStateItemViewHolder(
+        itemView: View,
+        listItemClickListener: ListItemClickListener
+    ) :
         RecyclerView.ViewHolder(itemView) {
 
         private val progressBar: ProgressBar = itemView.findViewById(R.id.progress_bar)
@@ -151,7 +168,12 @@ class BookingAdapter(private val itemClickListener: ListItemClickListener) :
         private val button: Button = itemView.findViewById(R.id.retry_button)
 
         init {
-            button.setOnClickListener { view -> listItemClickListener.onRetryClick(view, adapterPosition) }
+            button.setOnClickListener { view ->
+                listItemClickListener.onRetryClick(
+                    view,
+                    adapterPosition
+                )
+            }
         }
 
         fun bindView(networkState: NetworkState?) {
@@ -167,8 +189,7 @@ class BookingAdapter(private val itemClickListener: ListItemClickListener) :
             } else if (networkState != null && networkState.sts === Status.EMPTY) {
                 errorMsg.visibility = View.VISIBLE
                 errorMsg.text = networkState.mes
-            }
-            else {
+            } else {
                 errorMsg.visibility = View.GONE
             }
         }

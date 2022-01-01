@@ -1,6 +1,7 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.base
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -8,14 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
 
-abstract class SuperListAdapter<T, V : ViewBinding>(
-        diffUtil: DiffUtil.ItemCallback<T>
-) : ListAdapter<T, SuperListAdapter<T, V>.MyHolder>(diffUtil) {
+abstract class SuperListAdapter<T>(
+    private val viewId: Int,
+    diffUtil: DiffUtil.ItemCallback<T>
+) : ListAdapter<T, SuperListAdapter<T>.MyHolder>(diffUtil) {
 
     constructor(
-            areItemsTheSame: (oldItem: T, newItem: T) -> Boolean,
-            areContentsTheSame: (oldItem: T, newItem: T) -> Boolean
-    ) : this(object : DiffUtil.ItemCallback<T>() {
+        viewId: Int,
+        areItemsTheSame: (oldItem: T, newItem: T) -> Boolean,
+        areContentsTheSame: (oldItem: T, newItem: T) -> Boolean
+    ) : this(viewId, object : DiffUtil.ItemCallback<T>() {
         override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
             return areItemsTheSame(oldItem, newItem)
         }
@@ -27,22 +30,18 @@ abstract class SuperListAdapter<T, V : ViewBinding>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = findBinding(inflater, parent)
-        return MyHolder(binding)
+        return MyHolder(inflater.inflate(viewId, parent, false))
     }
-
-    abstract fun findBinding(inflater: LayoutInflater, parent: ViewGroup): V
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.bindHolder()
+        holder.bindHolder(position)
     }
 
-
-    inner class MyHolder(val bindingItem: V) : RecyclerView.ViewHolder(bindingItem.root) {
-        fun bindHolder() {
-            bind(getItem(adapterPosition), bindingItem, adapterPosition)
+    inner class MyHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        fun bindHolder(position: Int) {
+            bind(getItem(position), view, position)
         }
     }
 
-    abstract fun bind(t: T, bindingItem: V, adapterPosition: Int)
+    abstract fun bind(t: T, view: View, adapterPosition: Int)
 }

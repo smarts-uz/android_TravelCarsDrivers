@@ -5,8 +5,8 @@ import kotlinx.coroutines.flow.flow
 import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseItem
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
 import uz.qwerty.travelcarsdrivers.presentation.app.App
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
@@ -28,28 +28,41 @@ class CourseRepositoryImpl @Inject constructor(
     override suspend fun getCourse(): ViewState {
         return try {
             val course = api.getCourse()
-            if (course.success) {
-                Success(course.data)
+            if (course.isSuccessful) {
+                Success(course.body())
             } else {
-                ServerError(course.error.message,course.error.code)
+                ServerError(course.message(), course.code())
             }
         } catch (e: Exception) {
             Fail(e)
         }
     }
 
-    override fun getCourseAll(): Flow<Result<List<CourseResponseItem>>> = flow {
-//        try {
-//            val responseCourse = api.getCourse()
-//            if (responseCourse.code() == 200) responseCourse.body()?.let {
-//                emit(Result.success<List<CourseResponseItem>>(it))
-//            } else {
-//                emit(Result.failure<List<CourseResponseItem>>(Exception(App.instance.getString(R.string.error))))
-//            }
-//        } catch (e: Exception) {
-//            Timber.e("Repository in function refreshToken error = $e")
-//            emit(Result.failure<List<CourseResponseItem>>(e))
-//        }
+    override fun getCurrency(): Flow<Result<List<CurrencyItem>>> = flow {
+        try {
+            val responseCourse = api.getCurrency()
+            if (responseCourse.code() == 200) responseCourse.body()?.let {
+                emit(Result.success(it))
+            } else {
+                emit(Result.failure<List<CurrencyItem>>(Exception(App.instance.getString(R.string.error))))
+            }
+        } catch (e: Exception) {
+            Timber.e("XATOLIK = $e")
+            emit(Result.failure<List<CurrencyItem>>(e))
+        }
+    }
+
+    override suspend fun getNewCourse(): ViewState {
+        return try {
+            val response = api.getAllCourse()
+            if (response.isSuccessful) {
+                Success(response.body())
+            } else {
+                ServerError(response.message(), response.code())
+            }
+        } catch (e: Exception) {
+            Fail(e)
+        }
     }
 
 }

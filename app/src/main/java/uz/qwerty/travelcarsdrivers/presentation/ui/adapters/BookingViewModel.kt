@@ -13,8 +13,6 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
 
-
-
 class BookingViewModel(var pageSize: Int = 10) : ViewModel() {
 
     var buildingList: LiveData<PagedList<Booking>>
