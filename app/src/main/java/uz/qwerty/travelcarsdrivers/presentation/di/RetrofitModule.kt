@@ -13,7 +13,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uz.qwerty.travelcarsdrivers.util.Config
 import uz.qwerty.travelcarsdrivers.util.Config.VALYUT
 import uz.qwerty.travelcarsdrivers.util.Config.WEATHER_URL
 import uz.qwerty.travelcarsdrivers.util.isConnected

@@ -5,7 +5,9 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
-import uz.qwerty.travelcarsdrivers.data.repository.CourseRepositoryImpl
+import uz.qwerty.travelcarsdrivers.data.repository.currency.CourseRepositoryImpl
+import uz.qwerty.travelcarsdrivers.data.repository.weather.WeatherRepositoryImpl
+import uz.qwerty.travelcarsdrivers.domain.repository.weather.WeatherRepository
 
 
 /**
@@ -18,4 +20,7 @@ import uz.qwerty.travelcarsdrivers.data.repository.CourseRepositoryImpl
 interface RepositoryModule {
     @Binds
     fun bindCourseRepository(courseRepositoryImpl: CourseRepositoryImpl): CourseRepository
+
+    @Binds
+    fun bindWeatherRepository(weatherRepositoryImpl: WeatherRepositoryImpl): WeatherRepository
 }

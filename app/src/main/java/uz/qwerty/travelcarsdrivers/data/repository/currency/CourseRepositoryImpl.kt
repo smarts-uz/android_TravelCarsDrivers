@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.data.repository
+package uz.qwerty.travelcarsdrivers.data.repository.currency
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -6,7 +6,6 @@ import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
 import uz.qwerty.travelcarsdrivers.presentation.app.App
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
