@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.WeatherApi
+import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -19,5 +21,8 @@ import javax.inject.Singleton
 class ApiModule {
     @Provides
     @Singleton
-    fun provideCourseApi(retrofit: Retrofit): CourseApi = retrofit.create(CourseApi::class.java)
+    fun provideCourseApi(@Named("Currency")retrofit: Retrofit): CourseApi = retrofit.create(CourseApi::class.java)
+    @Provides
+    @Singleton
+    fun provideWeatherApi(@Named("Weather")retrofit: Retrofit):WeatherApi = retrofit.create(WeatherApi::class.java)
 }

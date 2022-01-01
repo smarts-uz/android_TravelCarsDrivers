@@ -31,9 +31,12 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
     }
 
     private fun loadObserver() {
-        vm.currencyLiveData.observe(this,{
+        vm.currencyLiveData.observe(this, {
             courseAdapter.submitList(it)
             showToast(it[0].ccyNmUZC)
+        })
+        vm.currencyErrorLiveData.observe(this, { err ->
+            showToast("Fail $err")
         })
     }
 

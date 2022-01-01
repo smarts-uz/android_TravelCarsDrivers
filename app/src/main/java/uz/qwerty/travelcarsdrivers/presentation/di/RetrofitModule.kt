@@ -13,9 +13,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uz.qwerty.travelcarsdrivers.util.Config
 import uz.qwerty.travelcarsdrivers.util.Config.VALYUT
+import uz.qwerty.travelcarsdrivers.util.Config.WEATHER_URL
 import uz.qwerty.travelcarsdrivers.util.isConnected
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -68,11 +71,23 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun getRetrofit(
+    @Named("Currency")
+    fun getCurrencyRetrofit(
         api: String,
         client: OkHttpClient
     ): Retrofit = Retrofit.Builder()
         .baseUrl(api)
+        .client(client)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    @Provides
+    @Singleton
+    @Named("Weather")
+    fun getWeatherRetrofit(
+        client: OkHttpClient
+    ): Retrofit = Retrofit.Builder()
+        .baseUrl(WEATHER_URL)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
