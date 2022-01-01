@@ -7,6 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
+import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseVM
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.*
@@ -30,11 +31,21 @@ class CourseViewModel @Inject constructor(
     val courseState: StateFlow<ViewState> get() = courseState
 
 
-    fun getCourse() {
-        _courseLiveData.postValue(Loading)
+    init {
+        getCourse()
+    }
+
+
+    private fun getCourse() {
+        _courseLiveData.value = Loading
         launchViewModel {
             val courseAll = repository.getCourse()
-            _courseLiveData.postValue(Success(courseAll))
+            when(courseAll){
+                is Success<*> ->{Timber.tag("zarnigor").d("Zarnigor malumot keldi")}
+                is ServerError ->{Timber.tag("zarnigor").d("Zarnigor server error keldi")}
+                is Fail ->{Timber.tag("zarnigor").d("Zarnigor fail keldi ${courseAll.exception.message}")}
+            }
+            _courseLiveData.value = Success(courseAll)
         }
     }
 

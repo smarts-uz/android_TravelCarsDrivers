@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseItem
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.ViewState
 
 
@@ -15,5 +16,5 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.state.ViewState
 
 interface CourseRepository {
     suspend fun getCourse(): ViewState
-    fun getCourseAll(): Flow<Result<CourseResponse>>
+    fun getCourseAll(): Flow<Result<List<CourseResponseItem>>>
 }

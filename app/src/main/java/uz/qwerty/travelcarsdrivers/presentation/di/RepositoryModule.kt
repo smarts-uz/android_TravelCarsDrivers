@@ -5,8 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
-import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepositoryImpl
-import javax.inject.Singleton
+import uz.qwerty.travelcarsdrivers.data.repository.CourseRepositoryImpl
 
 
 /**

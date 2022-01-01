@@ -1,12 +1,13 @@
-package uz.qwerty.travelcarsdrivers.domain.repository.course
+package uz.qwerty.travelcarsdrivers.data.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import retrofit2.Response
 import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.CourseApi
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponse
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseItem
+import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
 import uz.qwerty.travelcarsdrivers.presentation.app.App
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.ServerError
@@ -27,28 +28,28 @@ class CourseRepositoryImpl @Inject constructor(
     override suspend fun getCourse(): ViewState {
         return try {
             val course = api.getCourse()
-            if (course.isSuccessful) {
-                Success(course.body())
+            if (course.success) {
+                Success(course.data)
             } else {
-                ServerError(course.message(), course.code())
+                ServerError(course.error.message,course.error.code)
             }
         } catch (e: Exception) {
             Fail(e)
         }
     }
 
-    override fun getCourseAll(): Flow<Result<CourseResponse>> = flow {
-        try {
-            val responseCourse = api.getCourse()
-            if (responseCourse.code() == 200) responseCourse.body()?.let {
-                emit(Result.success(it))
-            } else {
-                emit(Result.failure<CourseResponse>(Exception(App.instance.getString(R.string.error))))
-            }
-        } catch (e: Exception) {
-            Timber.e("Repository in function refreshToken error = $e")
-            emit(Result.failure<CourseResponse>(e))
-        }
+    override fun getCourseAll(): Flow<Result<List<CourseResponseItem>>> = flow {
+//        try {
+//            val responseCourse = api.getCourse()
+//            if (responseCourse.code() == 200) responseCourse.body()?.let {
+//                emit(Result.success<List<CourseResponseItem>>(it))
+//            } else {
+//                emit(Result.failure<List<CourseResponseItem>>(Exception(App.instance.getString(R.string.error))))
+//            }
+//        } catch (e: Exception) {
+//            Timber.e("Repository in function refreshToken error = $e")
+//            emit(Result.failure<List<CourseResponseItem>>(e))
+//        }
     }
 
 }

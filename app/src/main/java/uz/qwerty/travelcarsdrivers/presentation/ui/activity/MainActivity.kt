@@ -79,8 +79,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addObservers()
-        //vm.getCourse()
-
         val sharedPref =
             this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
         val authKey = sharedPref.getString(getString(R.string.auth_key), null)
@@ -158,39 +156,34 @@ class MainActivity : AppCompatActivity() {
         vm.courseLiveData.observe(this, Observer {
             when (it) {
                 is Fail -> {
-                    //showToast()
                 }
                 is ServerError -> {
-                    //showToast()
                 }
                 is Loading -> {}
-                is Success<*> -> {
-                    val courseAll = it.data as CourseResponse
-                    showToast(courseAll.toString())
-                }
+                is Success<*> -> {}
                 else -> Unit
 
             }
         })
-        lifecycleScope.launchWhenStarted {
-            vm.courseState.collect {
-                when (it) {
-                    is Fail -> {
-                        //showToast()
-                    }
-                    is ServerError -> {
-                        //showToast()
-                    }
-                    is Loading -> {}
-                    is Success<*> -> {
-                        val courseAll = it.data as CourseResponse
-                        showToast(courseAll.toString())
-                    }
-                    else -> Unit
-
-                }
-            }
-        }
+//        lifecycleScope.launchWhenStarted {
+//            vm.courseState.collect {
+//                when (it) {
+//                    is Fail -> {
+//                        //showToast()
+//                    }
+//                    is ServerError -> {
+//                        //showToast()
+//                    }
+//                    is Loading -> {}
+//                    is Success<*> -> {
+//                        val courseAll = it.data as CourseResponse
+//                        showToast(courseAll.toString())
+//                    }
+//                    else -> Unit
+//
+//                }
+//            }
+//        }
     }
 
 

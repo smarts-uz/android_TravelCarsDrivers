@@ -9,15 +9,26 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import uz.qwerty.travelcarsdrivers.R
+import uz.qwerty.travelcarsdrivers.data.remote.response.course.CourseResponseItem
+import uz.qwerty.travelcarsdrivers.presentation.ui.common.course.CourseViewModel
+import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.Loading
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.ServerError
+import uz.qwerty.travelcarsdrivers.presentation.ui.state.Success
 import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
-
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
+    private val vm: CourseViewModel by viewModels()
     lateinit var login: EditText
     private lateinit var password: EditText
     private lateinit var button: Button
@@ -28,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        addObservers()
         OnStartChecks.hasInternetConnection().subscribe { hasInternet ->
             if (!hasInternet) {
                 val intent = Intent(this, NoConnectionActivity::class.java)
@@ -86,5 +97,44 @@ class LoginActivity : AppCompatActivity() {
                     progressBar.visibility = View.INVISIBLE
                 })
         }
+
+    }
+    private fun addObservers() {
+        vm.courseLiveData.observe(this, Observer {
+            when (it) {
+                is Fail -> {
+                    showToast("Fail -> ${it.exception.message}")
+                }
+                is ServerError -> {
+                }
+                is Loading -> {}
+                is Success<*> -> {
+                    showToast("Success!!!")
+//                    val data = it.data as List<CourseResponseItem>
+//                    showToast(data[0].CcyNm_UZC)
+                }
+                else -> Unit
+
+            }
+        })
+//        lifecycleScope.launchWhenStarted {
+//            vm.courseState.collect {
+//                when (it) {
+//                    is Fail -> {
+//                        //showToast()
+//                    }
+//                    is ServerError -> {
+//                        //showToast()
+//                    }
+//                    is Loading -> {}
+//                    is Success<*> -> {
+//                        val courseAll = it.data as CourseResponse
+//                        showToast(courseAll.toString())
+//                    }
+//                    else -> Unit
+//
+//                }
+//            }
+//        }
     }
 }
