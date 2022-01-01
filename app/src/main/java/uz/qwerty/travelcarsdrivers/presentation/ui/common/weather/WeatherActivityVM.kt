@@ -27,6 +27,10 @@ class WeatherActivityVM @Inject constructor(
     private var _weatherLiveDataError = MutableLiveData<String>()
     val weatherLiveDataError: LiveData<String> get() = _weatherLiveDataError
 
+    init {
+        getWeather()
+    }
+
     private fun getWeather() {
         launchViewModel(Dispatchers.IO) {
             repository.getWeather().collect { it ->

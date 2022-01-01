@@ -13,25 +13,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="casual"
             android:text="Tuesday, 15"
             android:textColor="@color/colorOffWhite"
-            android:layout_gravity="center"
-            android:fontFamily="casual"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"/>
+            android:textSize="20dp" />
+
         <TextView
+            android:id="@+id/nameCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tashkent"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:fontFamily="casual"
-            android:textColor="@color/colorWhite"
             android:layout_marginLeft="20dp"
-            />
+            android:fontFamily="casual"
+            android:text="Tashkent"
+            android:textColor="@color/colorWhite"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,12 +44,13 @@
             android:weightSum="2">
 
             <TextView
+                android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:text="+19°"
-                android:layout_marginTop="10dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="45dp"
                 android:textStyle="bold" />
@@ -215,13 +219,14 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/colorOffWhite"
                     />
+
                 <TextView
+                    android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="78%"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
-                    />
+                    android:text="78%"
+                    android:textColor="@color/colorWhite" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -235,13 +240,14 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/colorOffWhite"
                     />
+
                 <TextView
+                    android:id="@+id/wind"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3m/s"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
-                    />
+                    android:text="3m/s"
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
             <LinearLayout
@@ -256,13 +262,13 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/colorOffWhite"
                     />
+
                 <TextView
+                    android:id="@+id/pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="740.2 mm"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorWhite"
-                    />
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
             <LinearLayout

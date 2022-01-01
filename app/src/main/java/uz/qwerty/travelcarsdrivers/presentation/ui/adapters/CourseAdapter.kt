@@ -20,8 +20,11 @@ class CourseAdapter : SuperListAdapter<CurrencyItem>(
 ) {
     override fun bind(t: CurrencyItem, view: View, adapterPosition: Int) {
         val binding = ItemCourseBinding.bind(view)
+
         binding.currencyTypeTextview.text = t.ccy
+        binding.ccyNameEng.text = t.ccyNmEN
         binding.currencySellTextview.text = t.rate
-        binding.currencyBuyTextview.text = t.date
+        binding.dateCurrency.text = t.date
+
     }
 }

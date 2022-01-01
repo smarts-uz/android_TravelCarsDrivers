@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Keep
-@Parcelize
 data class WeatherResponse(
     val base: String,
     val clouds: Clouds,
@@ -22,7 +21,7 @@ data class WeatherResponse(
     val visibility: Int,
     val weather: List<Weather>,
     val wind: Wind
-) : Parcelable
+)
 
 @Keep
 data class Wind(

@@ -5,9 +5,7 @@
     android:id="@+id/card_view"
     app:cardElevation="10dp"
     app:cardCornerRadius="19dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="86dp">
 
@@ -24,23 +22,26 @@
         <ImageView
             android:id="@+id/currency_type_imageview"
             android:layout_width="38dp"
-            android:layout_height="38dp"
             android:src="@drawable/exchange"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp" />
+            android:layout_marginStart="20dp"/>
 
         <TextView
             android:id="@+id/currency_type_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="5dp"
             android:layout_toStartOf="@+id/currency_sell_textview"
+            android:layout_toEndOf="@id/currency_type_imageview"
             android:fontFamily="@font/nunito"
-            android:text="Usd"
+            android:textStyle="bold"
+            android:text=""
             android:textColor="#202326"
-            android:textSize="21sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/currency_sell_textview"
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="29dp"
-            android:layout_toStartOf="@id/currency_buy_textview"
+            android:layout_toStartOf="@id/dateCurrency"
             android:ellipsize="end"
             android:fontFamily="@font/nunito"
             android:maxLines="1"
@@ -57,26 +58,26 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/currency_buy_textview"
+            android:id="@+id/dateCurrency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="10 2504."
+            android:maxLines="1"
+            android:ellipsize="end"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/nunito"
-            android:maxLines="1"
-            android:text="10 2504."
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:fontFamily="@font/nunito"/>
 
         <TextView
+            android:id="@+id/ccyNameEng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/currency_sell_textview"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/nunito"
-            android:text="Rate"
             android:textColor="#7a869a"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
@@ -84,11 +85,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/currency_buy_textview"
+            android:layout_alignStart="@id/dateCurrency"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/nunito"
-            android:text="Date"
             android:textColor="#7a869a"
+            android:text="Date"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
     </RelativeLayout>
