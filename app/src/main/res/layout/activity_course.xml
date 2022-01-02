@@ -6,14 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.activity.CourseActivity">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_course"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:skeletonViewHolderItem="@layout/item_course"
+        tools:listitem="@layout/item_course" />
 
-    </androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

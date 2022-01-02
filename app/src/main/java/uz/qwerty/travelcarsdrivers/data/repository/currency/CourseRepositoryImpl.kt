@@ -26,7 +26,7 @@ class CourseRepositoryImpl @Inject constructor(
 ) : CourseRepository {
     override suspend fun getCourse(): ViewState {
         return try {
-            val course = api.getCourse()
+            val course = api.getNewCurrency()
             if (course.isSuccessful) {
                 Success(course.body())
             } else {

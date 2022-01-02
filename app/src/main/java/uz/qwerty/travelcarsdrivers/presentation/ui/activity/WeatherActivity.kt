@@ -37,7 +37,7 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
     }
 
     private fun loadView() {
-        TODO("Not yet implemented")
+
     }
 
 }

@@ -13,7 +13,7 @@ android {
     }
     defaultConfig {
         applicationId "uz.qwerty.travelcarsdrivers"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -117,4 +117,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutines_ktx"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$coroutines_ktx"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$coroutines_ktx"
+
+    /**
+     * Shimmer facebook
+     */
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.github.AgnaldoNP:AGSkeletonLoading:1.2'
+
 }

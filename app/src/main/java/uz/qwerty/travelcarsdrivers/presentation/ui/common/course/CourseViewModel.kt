@@ -1,18 +1,20 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.common.course
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseVM
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.*
+import uz.qwerty.travelcarsdrivers.util.Event
 import uz.qwerty.travelcarsdrivers.util.isConnected
 import javax.inject.Inject
 
@@ -26,15 +28,15 @@ import javax.inject.Inject
 class CourseViewModel @Inject constructor(
     private val repository: CourseRepository
 ) : BaseVM() {
-    private var _courseLiveData = MutableLiveData<ViewState>()
-    val courseLiveData: LiveData<ViewState> get() = _courseLiveData
+    private var _courseLiveData = MutableLiveData<Event<ViewState>>()
+    val courseLiveData: LiveData<Event<ViewState>> get() = _courseLiveData
 
     private val _currencyLiveData = MutableLiveData<List<CurrencyItem>>()
-    val currencyLiveData:LiveData<List<CurrencyItem>>get() = _currencyLiveData
+    val currencyLiveData: LiveData<List<CurrencyItem>> get() = _currencyLiveData
 
 
     private val _currencyErrorLiveData = MutableLiveData<String>()
-    val currencyErrorLiveData:LiveData<String>get() = _currencyErrorLiveData
+    val currencyErrorLiveData: LiveData<String> get() = _currencyErrorLiveData
 
 
     private var _state = MutableLiveData<ViewState>()
@@ -44,11 +46,11 @@ class CourseViewModel @Inject constructor(
     val courseState: StateFlow<ViewState> get() = courseState
 
 
-     fun getCourse() {
-        _courseLiveData.value = Loading
-        launchViewModel {
-            val courseAll = repository.getCourse()
-            when (courseAll) {
+    fun getCourse() {
+        _courseLiveData.value = Event(Loading)
+        viewModelScope.launch {
+            val event = repository.getCourse()
+            when (event) {
                 is Success<*> -> {
                     Timber.tag("zarnigor").d("Zarnigor malumot keldi")
                 }
@@ -56,10 +58,13 @@ class CourseViewModel @Inject constructor(
                     Timber.tag("zarnigor").d("Zarnigor server error keldi")
                 }
                 is Fail -> {
-                    Timber.tag("zarnigor").d("Zarnigor fail keldi ${courseAll.exception.message}")
+                    Timber.tag("zarnigor").d("Zarnigor fail keldi ${event.exception.message}")
+                }
+                else -> {
+                    Unit
                 }
             }
-            _courseLiveData.value = Success(courseAll)
+            _courseLiveData.value = Event(event)
         }
     }
 
@@ -85,7 +90,7 @@ class CourseViewModel @Inject constructor(
         _state.value = Loading
         launchViewModel {
             val newCourse = repository.getNewCourse()
-            when(newCourse){
+            when (newCourse) {
                 is Success<*> -> {
                     Timber.tag("zarnigor").d("Zarnigor malumot keldi")
                 }

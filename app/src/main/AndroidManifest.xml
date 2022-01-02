@@ -16,7 +16,10 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".presentation.ui.activity.WeatherActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".presentation.ui.activity.CourseActivity"
             android:exported="true"
@@ -27,6 +30,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <service android:name=".util.service.FMessagingService">

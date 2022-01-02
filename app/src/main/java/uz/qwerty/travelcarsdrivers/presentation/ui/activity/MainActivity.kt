@@ -32,7 +32,6 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.state.Success
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val vm: CourseViewModel by viewModels()
     var apiService = TravelCarsApi.createService(true)
     private var doubleBackToExitPressedOnce = false
     private lateinit var user: User
@@ -74,7 +73,6 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        addObservers()
         val sharedPref =
             this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
         val authKey = sharedPref.getString(getString(R.string.auth_key), null)
@@ -148,39 +146,6 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
-    private fun addObservers() {
-        vm.courseLiveData.observe(this, Observer {
-            when (it) {
-                is Fail -> {
-                }
-                is ServerError -> {
-                }
-                is Loading -> {}
-                is Success<*> -> {}
-                else -> Unit
-
-            }
-        })
-//        lifecycleScope.launchWhenStarted {
-//            vm.courseState.collect {
-//                when (it) {
-//                    is Fail -> {
-//                        //showToast()
-//                    }
-//                    is ServerError -> {
-//                        //showToast()
-//                    }
-//                    is Loading -> {}
-//                    is Success<*> -> {
-//                        val courseAll = it.data as CourseResponse
-//                        showToast(courseAll.toString())
-//                    }
-//                    else -> Unit
-//
-//                }
-//            }
-//        }
-    }
 
 
     override fun onRestart() {
