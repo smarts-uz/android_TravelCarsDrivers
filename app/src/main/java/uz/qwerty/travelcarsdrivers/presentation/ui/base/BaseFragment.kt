@@ -131,35 +131,3 @@ abstract class BaseScreen<T : ViewBinding>() : Fragment() {
     }
 }
 
-
-abstract class BaseFragment<out T : ViewBinding> : Fragment() {
-
-    private var _binding: ViewBinding? = null
-
-    @Suppress("UNCHECKED_CAST")
-    protected val binding: T
-        get() = _binding as T
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        onViewCreate(view, savedInstanceState)
-    }
-
-    abstract fun onViewCreate(view: View, savedInstanceState: Bundle?)
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = inflaterBinding(inflater)
-        return _binding!!.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    protected abstract val inflaterBinding: (LayoutInflater) -> ViewBinding
-
-}

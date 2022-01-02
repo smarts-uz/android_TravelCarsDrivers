@@ -70,7 +70,7 @@ class CourseViewModel @Inject constructor(
 
     fun getAllCourse() {
         if (isConnected()) {
-            _courseState.value = Loading
+            _loadingLiveData.value = Unit
             launchViewModel(Dispatchers.IO) {
                 repository.getCurrency().collect { response ->
                     response.onSuccess {
@@ -78,11 +78,13 @@ class CourseViewModel @Inject constructor(
                         Timber.tag("zarnigor").d("Zarnigor malumot keldi")
                     }
                     response.onFailure {
-                        _currencyErrorLiveData.postValue(it.message)
+                        _errorLiveData.postValue(it.message)
                         Timber.tag("zarnigor").d("Zarnigor server error keldi")
                     }
                 }
             }
+        } else {
+            _connectLiveData.value = true
         }
     }
 

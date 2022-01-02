@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.CalendarContract
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.databinding.ActivityWeatherBinding
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseActivity
 import uz.qwerty.travelcarsdrivers.presentation.ui.common.weather.WeatherActivityVM
@@ -19,7 +20,6 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
     }
 
     override fun onCreated(savedInstanceState: Bundle?) {
-        loadView()
         loadObserver()
     }
 
@@ -34,10 +34,12 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
             binding.wind.text = "${weatherResponse.wind.speed}m/s"
             binding.pressure.text = weatherResponse.main.pressure.toString()
         })
-    }
-
-    private fun loadView() {
-
+        vm.errorLiveData.observe(this, {
+            showErrorMessage(getString(R.string.warning), it)
+        })
+        vm.connectLiveData.observe(this,{
+            if (it) showErrorMessage(getString(R.string.warning),getString(R.string.no_connection_icon))
+        })
     }
 
 }

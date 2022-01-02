@@ -9,6 +9,7 @@ import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.data.remote.response.weather.WeatherResponse
 import uz.qwerty.travelcarsdrivers.domain.repository.weather.WeatherRepository
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseVM
+import uz.qwerty.travelcarsdrivers.util.isConnected
 import javax.inject.Inject
 
 
@@ -24,25 +25,28 @@ class WeatherActivityVM @Inject constructor(
     private var _weatherLiveData = MutableLiveData<WeatherResponse>()
     val weatherLiveData: LiveData<WeatherResponse> get() = _weatherLiveData
 
-    private var _weatherLiveDataError = MutableLiveData<String>()
-    val weatherLiveDataError: LiveData<String> get() = _weatherLiveDataError
-
     init {
         getWeather()
     }
 
     private fun getWeather() {
-        launchViewModel(Dispatchers.IO) {
-            repository.getWeather().collect { it ->
-                it.onSuccess{
-                    _weatherLiveData.postValue(it)
-                    Timber.tag("zarnigor").d("Zarnigor malumot keldi")
-                }
-                it.onFailure {
-                    _weatherLiveDataError.postValue(it.message)
-                    Timber.tag("zarnigor").d("Zarnigor fail ->${it.message}")
+        if (isConnected()){
+            _loadingLiveData.postValue(Unit)
+            launchViewModel(Dispatchers.IO) {
+                repository.getWeather().collect { it ->
+                    it.onSuccess{
+                        _weatherLiveData.postValue(it)
+                        Timber.tag("zarnigor").d("Zarnigor malumot keldi")
+                    }
+                    it.onFailure {
+                        _errorLiveData.postValue(it.message)
+                        Timber.tag("zarnigor").d("Zarnigor fail ->${it.message}")
+                    }
                 }
             }
+        }else{
+            _connectLiveData.value = true
         }
+
     }
 }

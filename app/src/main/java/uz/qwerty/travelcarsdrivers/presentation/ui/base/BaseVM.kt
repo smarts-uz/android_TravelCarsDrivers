@@ -19,14 +19,17 @@ import kotlin.coroutines.EmptyCoroutineContext
  */
 abstract class BaseVM : ViewModel() {
 
-    protected val _loading = MutableLiveData<Unit>()
-    val loading: LiveData<Unit> = _loading
+    protected val _loadingLiveData = MutableLiveData<Unit>()
+    val loadingLiveData: LiveData<Unit> = _loadingLiveData
 
-    protected val _empty = MutableLiveData<Unit>()
-    val empty: LiveData<Unit> = _empty
+    protected val _emptyLiveData = MutableLiveData<Unit>()
+    val emptyLiveData: LiveData<Unit> = _emptyLiveData
 
-    protected val _error = MutableLiveData<String>()
-    val error: LiveData<String> = _error
+    protected val _errorLiveData = MutableLiveData<String>()
+    val errorLiveData: LiveData<String> = _errorLiveData
+
+    protected val _connectLiveData = MutableLiveData<Boolean>()
+    val connectLiveData: LiveData<Boolean> = _connectLiveData
 
 //    protected val _success = MutableLiveData<T>()
 //    val success: LiveData<T> = _success

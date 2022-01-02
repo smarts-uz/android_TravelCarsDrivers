@@ -11,8 +11,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.button.MaterialButton
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
+import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.visible
 
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
@@ -34,6 +36,32 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
     abstract fun bindingActivity(): T
 
     abstract fun onCreated(savedInstanceState: Bundle?)
+
+    fun showSuccessMessage(txt: String) {
+
+        if (!baseActivityStopped) {
+
+            if (baseMessageDialog == null) {
+
+                loadDialog()
+                val statusImageview =
+                    baseMessageDialog?.findViewById<AppCompatImageView>(R.id.status_imageview)
+                statusImageview?.visible()
+                val errorDescription =
+                    baseMessageDialog?.findViewById<TextView>(R.id.titletextview)
+                errorDescription?.text = txt
+                val okButton = baseMessageDialog?.findViewById<MaterialButton>(R.id.ok_button)
+                okButton?.setOnClickListener {
+                    baseMessageDialog?.dismiss()
+                    baseMessageDialog = null
+                }
+                baseMessageDialog?.show()
+            }
+        } else {
+            showToast(txt)
+        }
+
+    }
 
     fun showErrorMessage(title: String = "", txt: String, callback: (() -> Unit)? = null) {
 

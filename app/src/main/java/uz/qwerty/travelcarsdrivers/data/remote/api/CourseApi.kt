@@ -14,6 +14,7 @@ import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseI
  */
 
 interface CourseApi {
+
     @GET("json/")
     suspend fun getNewCurrency(): Response<List<CurrencyItem>>
 
