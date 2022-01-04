@@ -1,10 +1,16 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
+import aglibs.loading.skeleton.layout.SkeletonRelativeLayout
 import android.os.Bundle
 import android.view.View
+import android.widget.RelativeLayout
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
 import uz.qwerty.travelcarsdrivers.databinding.ActivityCourseBinding
@@ -18,6 +24,7 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.state.*
 
 @AndroidEntryPoint
 class CourseActivity : BaseActivity<ActivityCourseBinding>() {
+
 
     private val courseAdapter by lazy { CourseAdapter() }
     private val vm: CourseViewModel by viewModels()
@@ -50,12 +57,16 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
         vm.currencyLiveData.observe(this, {
             courseAdapter.submitList(it)
             binding.progressBar.gone()
+
         })
-        vm.loadingLiveData.observe(this,{
+        vm.loadingLiveData.observe(this, {
             binding.progressBar.visible()
         })
         vm.connectLiveData.observe(this, {
-            if (it) showErrorMessage(getString(R.string.warning),getString(R.string.no_connection_icon))
+            if (it) showErrorMessage(
+                getString(R.string.warning),
+                getString(R.string.no_connection_icon)
+            )
         })
         vm.errorLiveData.observe(this, {
             showErrorMessage(getString(R.string.warning), it!!)

@@ -31,6 +31,7 @@ class WeatherActivityVM @Inject constructor(
 
     private fun getWeather() {
         if (isConnected()){
+            _loadingLiveData.value = Unit
             _loadingLiveData.postValue(Unit)
             launchViewModel(Dispatchers.IO) {
                 repository.getWeather().collect { it ->

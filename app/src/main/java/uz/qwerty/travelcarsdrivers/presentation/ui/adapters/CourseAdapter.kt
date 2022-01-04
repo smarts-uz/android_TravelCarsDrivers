@@ -7,6 +7,7 @@ import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
 import uz.qwerty.travelcarsdrivers.databinding.ItemCourseBinding
+import uz.qwerty.travelcarsdrivers.presentation.ui.base.SuperAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.SuperListAdapter
 
 
@@ -15,7 +16,7 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.base.SuperListAdapter
  * company
  * shahzod9933@gmail.com
  */
-class CourseAdapter : SuperListAdapter<CurrencyItem>(
+class CourseAdapter : SuperAdapter<CurrencyItem>(
     R.layout.item_course,
     { oldItem, newItem -> oldItem == newItem },
     { oldItem, newItem -> oldItem == newItem },
@@ -28,5 +29,6 @@ class CourseAdapter : SuperListAdapter<CurrencyItem>(
         binding.currencySellTextview.text = t.rate
         binding.dateCurrency.text = t.date
     }
+
 
 }
