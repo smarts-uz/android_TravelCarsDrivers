@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -11,13 +10,17 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLo"
-            android:theme="@style/AppTheme.AppBarOverlay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -133,26 +136,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appBarLo"
-            >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLo">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/appBarLo">
+
                 <TextView
                     android:id="@+id/active_trips_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:textSize="16sp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/active_trips"
                     android:textColor="@color/blockTitleTextColor"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -174,11 +178,11 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/active_trips_list"
-                        android:visibility="invisible"
                         android:layout_width="wrap_content"
-                        android:minHeight="120dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:minHeight="120dp"
+                        android:orientation="horizontal"
+                        android:visibility="invisible">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
@@ -192,26 +196,25 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toTopOf="@id/counts_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/active_trips_label"
-                    app:layout_constraintBottom_toTopOf="@id/counts_label"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/active_trips_label" />
 
                 <TextView
                     android:id="@+id/no_active_trips"
-                    android:visibility="invisible"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/no_active_trips"
-                    android:textColor="@color/blockTitleTextColor"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:text="@string/no_active_trips"
+                    android:textColor="@color/blockTitleTextColor"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toTopOf="@id/counts_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/active_trips_label"
-                    app:layout_constraintBottom_toTopOf="@id/counts_label" />
+                    app:layout_constraintTop_toBottomOf="@id/active_trips_label" />
 
                 <TextView
                     android:id="@+id/counts_label"
@@ -220,13 +223,67 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:textSize="16sp"
                     android:text="@string/counts"
                     android:textColor="@color/blockTitleTextColor"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/active_trips_items" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/l1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/counts_label">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/currencyBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/status_done"
+                            android:padding="16dp"
+                            android:text="курса валюты"
+                            android:textColor="@color/textWhite"
+                            android:textStyle="bold" />
+
+
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weatherBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/status_proceed"
+                            android:padding="16dp"
+                            android:text="погоды"
+                            android:textColor="@color/textBlack"
+                            android:textStyle="bold" />
+
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
 
                 <TextView
                     android:id="@+id/counts_done"
@@ -235,14 +292,15 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/status_done"
                     android:padding="16dp"
                     android:text="@string/counts_done"
-                    android:background="@drawable/status_done"
                     android:textColor="@color/textWhite"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/counts_label" />
+                    app:layout_constraintTop_toBottomOf="@id/l1" />
+
 
                 <TextView
                     android:id="@+id/counts_active"
@@ -251,13 +309,14 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/status_active"
                     android:padding="16dp"
                     android:text="@string/counts_active"
-                    android:background="@drawable/status_active"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/counts_done" />
+
 
                 <TextView
                     android:id="@+id/counts_proceed"
@@ -266,29 +325,29 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/status_proceed"
                     android:padding="16dp"
                     android:text="@string/counts_proceed"
-                    android:background="@drawable/status_proceed"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/counts_active" />
 
                 <!--<TextView-->
-                    <!--android:id="@+id/counts_rejected"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="16dp"-->
-                    <!--android:layout_marginTop="10dp"-->
-                    <!--android:layout_marginEnd="16dp"-->
-                    <!--android:padding="16dp"-->
-                    <!--android:text="@string/counts_rejected"-->
-                    <!--android:background="@drawable/status_rejected"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="@color/textWhite"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@id/counts_proceed" />-->
+                <!--android:id="@+id/counts_rejected"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:padding="16dp"-->
+                <!--android:text="@string/counts_rejected"-->
+                <!--android:background="@drawable/status_rejected"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textColor="@color/textWhite"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/counts_proceed" />-->
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -314,16 +373,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:clickable="true"
-        android:elevation="20dp"
         android:focusable="true"
-        app:elevation="20dp"
+        android:src="@drawable/ic_send"
+        app:elevation="0dp"
         app:fabCustomSize="64dp"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:maxImageSize="24dp"
-        app:srcCompat="@drawable/ic_send" />
+        app:maxImageSize="24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -13,19 +12,19 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_calendar.*
-import kotlinx.android.synthetic.main.item_route_list.view.*
+import kotlinx.android.synthetic.main.new_item_route_list.view.*
 import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.models.Route
 
-class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewRouteAdapter(var onItemClickRv: OnItemClickRv) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val banners: MutableList<Route> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return RouteViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_route_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.new_item_route_list, parent, false)
         )
     }
 
@@ -48,11 +47,11 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val status: Switch = itemView.findViewById(R.id.status)
         private val trip_booked: TextView = itemView.findViewById(R.id.trip_booked)
 
-        @SuppressLint("ResourceAsColor")
         fun bindModel(banner: Route) {
             id = banner.id
             booking_id = banner.booking_id
 
+            itemView.setOnClickListener { onItemClickRv.clickItem(banner) }
 
             var citiesText = banner.city_from + " - " + banner.city_to
             if (banner.reverse == 1) {
@@ -64,6 +63,7 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             status.isChecked = banner.status == 1
             status.visibility = View.VISIBLE
             trip_booked.visibility = View.INVISIBLE
+
 
             if (booking_id != null) {
                 itemView.setOnClickListener {
@@ -88,6 +88,7 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                         .unsubscribeOn(Schedulers.computation())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({
+
                             if (it.isSuccessful && it.code() == 200) {
                                 banner.status = if (banner.status == 1) {
                                     0
@@ -125,10 +126,6 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             } else {
                 status.visibility = View.INVISIBLE
                 trip_booked.visibility = View.VISIBLE
-                /**
-                 * my add
-                 */
-                itemView.bookingCard.setBackgroundResource(R.color.buttonBackgroundColor)
             }
         }
 
@@ -136,14 +133,19 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    fun setBanners(data: List<Route>) {
+    fun setBanners(data: Route) {
         clear()
-        banners.addAll(data)
+        banners.add(data)
         notifyDataSetChanged()
     }
+
 
     fun clear() {
         banners.clear()
         notifyDataSetChanged()
     }
+}
+
+interface OnItemClickRv {
+    fun clickItem(data: Route)
 }

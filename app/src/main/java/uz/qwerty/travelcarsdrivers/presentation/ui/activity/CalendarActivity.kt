@@ -14,6 +14,9 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_calendar.*
 import kotlinx.android.synthetic.main.content_calendar.*
 import uz.qwerty.travelcarsdrivers.R
+import uz.qwerty.travelcarsdrivers.domain.models.Route
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.NewRouteAdapter
+import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.OnItemClickRv
 import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.RouteAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
@@ -22,6 +25,7 @@ import java.util.*
 class CalendarActivity : AppCompatActivity() {
 
     var apiService = TravelCarsApi.createService(true)
+    lateinit var newRouteAdapter: NewRouteAdapter
     lateinit var routeAdapter: RouteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +33,8 @@ class CalendarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calendar)
 
 
-        val sharedPref = this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
+        val sharedPref =
+            this.getSharedPreferences(getString(R.string.config), Context.MODE_PRIVATE) ?: return
         val authKey = sharedPref.getString(getString(R.string.auth_key), null)
 
         OnStartChecks.hasInternetConnection().subscribe { hasInternet ->
@@ -50,11 +55,21 @@ class CalendarActivity : AppCompatActivity() {
 
 
         routeAdapter = RouteAdapter()
+        newRouteAdapter = NewRouteAdapter(object : OnItemClickRv {
+            override fun clickItem(data: Route) {
+
+                routesList.adapter = routeAdapter
+
+            }
+
+        })
 
         val linearLM = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         routesList.layoutManager = linearLM
-        routesList.adapter = routeAdapter
+
+
+        routesList.adapter = newRouteAdapter
 
         nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         nav_view.selectedItemId = R.id.navigation_stats
@@ -72,7 +87,10 @@ class CalendarActivity : AppCompatActivity() {
             routes_progressbar.visibility = View.VISIBLE
             no_routes_label.visibility = View.INVISIBLE
             routesListView.visibility = View.INVISIBLE
-            getRoutes(authKey, year.toString() + "-" + (month + 1).toString() + "-" + dayOfMonth.toString())
+            getRoutes(
+                authKey,
+                year.toString() + "-" + (month + 1).toString() + "-" + dayOfMonth.toString()
+            )
         }
 
     }
@@ -85,7 +103,13 @@ class CalendarActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 if (it.isSuccessful && it.code() == 200) {
-                    routeAdapter.setBanners(it.body()!!.data)
+
+                    val data0 = it.body()!!.data
+                    //routeAdapter.setBanners(it.body()!!.data)
+                    newRouteAdapter.setBanners(data0[0])
+
+                    routeAdapter.setBanners(data0)
+
                     routes_progressbar.visibility = View.INVISIBLE
                     if (it.body()!!.data.isEmpty()) {
                         no_routes_label.visibility = View.VISIBLE
@@ -133,31 +157,32 @@ class CalendarActivity : AppCompatActivity() {
             })
     }
 
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_dashboard -> {
-                val intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_clock -> {
-                val intent = Intent(this, TripsActivity::class.java)
-                intent.putExtra("type", "review")
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_stats -> {
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_dashboard -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_clock -> {
+                    val intent = Intent(this, TripsActivity::class.java)
+                    intent.putExtra("type", "review")
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_stats -> {
 //                val intent = Intent(this, SettingsActivity::class.java)
 //                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
+                    return@OnNavigationItemSelectedListener true
+                }
             }
+            false
         }
-        false
-    }
 
 }

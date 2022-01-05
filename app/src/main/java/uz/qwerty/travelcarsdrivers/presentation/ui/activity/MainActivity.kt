@@ -83,6 +83,12 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.banner_list)
         bannerIndicator = findViewById(R.id.banner_indicator)
         viewPager.adapter = bannerAdapter
+        currencyBtn.setOnClickListener {
+            startActivity(Intent(this,CourseActivity::class.java))
+        }
+        weatherBtn.setOnClickListener {
+            startActivity(Intent(this,WeatherActivity::class.java))
+        }
 
         activeAdapter = BookingActiveAdapter()
 
