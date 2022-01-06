@@ -19,16 +19,13 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import org.json.JSONObject
-import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.presentation.app.App
 import uz.qwerty.travelcarsdrivers.presentation.ui.activity.MainActivity
 
 class FMessagingService : FirebaseMessagingService() {
 
 
-    fun generateMessage(title: String?, message: String) {
+    fun generateNotification(title: String?, message: String) {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
@@ -54,6 +51,22 @@ class FMessagingService : FirebaseMessagingService() {
                 .setColor(Color.parseColor("#394ac9"))
                 .setContentIntent(pendingIntent)
         builder = builder.setContent(getRemoteView(title, message))
+
+        val manager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                channelId,
+                channelName,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            channel.setSound(null, null)
+            manager.createNotificationChannel(channel)
+            manager.notify(0, builder.build())
+        }
+
+
     }
 
     private fun getRemoteView(title: String?, message: String): RemoteViews? {
@@ -69,23 +82,16 @@ class FMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
 
 
-        // ...
-
-        // TODO(developer): Handle FCM messages here.
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-
-        // Check if message contains a data payload.
         if (remoteMessage!!.data.isNotEmpty()) {
 
         }
 
-        // Check if message contains a notification payload.
         if (remoteMessage.notification != null) {
-
+            generateNotification(
+                remoteMessage.notification?.title,
+                remoteMessage.notification!!.body!!
+            )
         }
-
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
     }
 
     override fun onNewToken(s: String?) {

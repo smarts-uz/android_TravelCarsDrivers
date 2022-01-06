@@ -28,6 +28,7 @@ class CourseAdapter : SuperAdapter<CurrencyItem>(
         binding.ccyNameEng.text = t.ccyNmEN
         binding.currencySellTextview.text = t.rate
         binding.dateCurrency.text = t.date
+        binding.skelton.stopLoading()
     }
 
 

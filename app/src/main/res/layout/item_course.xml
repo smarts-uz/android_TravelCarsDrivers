@@ -16,7 +16,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/currency_item_background" />
 
-    <RelativeLayout
+    <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
         android:id="@+id/skelton"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -94,7 +94,7 @@
             android:textColor="#7a869a"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
-    </RelativeLayout>
+    </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
 
 </androidx.cardview.widget.CardView>
 

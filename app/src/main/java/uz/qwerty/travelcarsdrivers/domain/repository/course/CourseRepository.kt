@@ -13,7 +13,10 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.state.ViewState
  */
 
 interface CourseRepository {
+
     suspend fun getCourse(): ViewState
+
+
     fun getCurrency(): Flow<Result<List<CurrencyItem>>>
     suspend fun getNewCourse(): ViewState
 }
