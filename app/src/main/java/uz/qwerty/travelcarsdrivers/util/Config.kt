@@ -2,7 +2,9 @@ package uz.qwerty.travelcarsdrivers.util
 
 object Config {
     //const val baseUrl = "https://api.travelcars.uz"
-    const val baseUrl = "http://api.travelcars.teampro.uz/api/"
+    // asosiy const val baseUrl = "http://api.travelcars.teampro.uz/api/"
+    const val baseUrl = "https://api.travelcars.uz/"
+
     const val VALYUT = "https://cbu.uz/uz/arkhiv-kursov-valyut/"
     const val WEATHER_URL = "https://api.openweathermap.org/data/2.5/"
     const val WEATHER_END_POINT =

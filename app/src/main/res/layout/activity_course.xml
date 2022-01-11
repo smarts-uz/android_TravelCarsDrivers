@@ -6,6 +6,808 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.activity.CourseActivity">
 
+    <LinearLayout
+        android:id="@+id/skelton"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview"
+                    android:layout_toEndOf="@id/currency_type_imageview"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview2"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview2"
+                    android:layout_toEndOf="@id/currency_type_imageview2"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency2"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview2"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview3"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview3"
+                    android:layout_toEndOf="@id/currency_type_imageview3"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency3"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview3"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency3"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview4"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview4"
+                    android:layout_toEndOf="@id/currency_type_imageview4"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency4"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview4"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency4"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview5"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview5"
+                    android:layout_toEndOf="@id/currency_type_imageview5"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency5"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview5"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency5"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview6"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview6"
+                    android:layout_toEndOf="@id/currency_type_imageview6"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency6"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview6"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency6"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview7"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview7"
+                    android:layout_toEndOf="@id/currency_type_imageview7"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency7"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview7"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency7"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/currency_item_background" />
+
+            <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/currency_type_imageview8"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/exchange" />
+
+                <TextView
+                    android:id="@+id/currency_type_textview8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/currency_sell_textview8"
+                    android:layout_toEndOf="@id/currency_type_imageview8"
+                    android:fontFamily="@font/nunito"
+                    android:text=""
+                    android:textColor="#202326"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/currency_sell_textview8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="29dp"
+                    android:layout_toStartOf="@id/dateCurrency8"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 123478"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dateCurrency8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito"
+                    android:maxLines="1"
+                    android:text="10 2504."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ccyNameEng8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/currency_sell_textview8"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/dateCurrency8"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Date"
+                    android:textColor="#7a869a"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
@@ -13,10 +815,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:skeletonViewHolderItem="@layout/item_course"
-        tools:listitem="@layout/item_course" />
-
-
+        />
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
