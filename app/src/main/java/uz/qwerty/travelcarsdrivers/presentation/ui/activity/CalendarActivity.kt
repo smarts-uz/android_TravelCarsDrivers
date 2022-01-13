@@ -17,7 +17,7 @@ import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.domain.models.Route
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.NewRouteAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.OnItemClickRv
-import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.RouteAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import java.util.*

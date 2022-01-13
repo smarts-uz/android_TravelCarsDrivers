@@ -55,10 +55,9 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
  */
 
         vm.currencyLiveData.observe(this, {
-            courseAdapter.submitList(it)
             binding.progressBar.gone()
-            binding.skelton.visibility = View.GONE
-
+            binding.skelton.gone()
+            courseAdapter.submitList(it)
         })
         vm.loadingLiveData.observe(this, {
             binding.progressBar.visible()

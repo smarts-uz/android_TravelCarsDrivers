@@ -1,12 +1,11 @@
-package uz.qwerty.travelcarsdrivers.util
+package uz.qwerty.travelcarsdrivers.data.remote.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsService
-import uz.qwerty.travelcarsdrivers.util.Config.baseUrl
+import uz.qwerty.travelcarsdrivers.util.config.Config.baseUrl
 
 object TravelCarsApi {
     fun createService(logging: Boolean): TravelCarsService {

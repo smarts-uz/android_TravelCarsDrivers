@@ -1,4 +1,4 @@
-package uz.qwerty.travelcarsdrivers.util
+package uz.qwerty.travelcarsdrivers.util.config
 
 object Config {
     //const val baseUrl = "https://api.travelcars.uz"

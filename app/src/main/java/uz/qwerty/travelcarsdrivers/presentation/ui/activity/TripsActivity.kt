@@ -16,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_trips.*
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.repository.booking.NetworkState
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingViewModel

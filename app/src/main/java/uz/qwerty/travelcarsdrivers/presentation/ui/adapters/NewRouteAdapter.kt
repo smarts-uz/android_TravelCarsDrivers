@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.content_calendar.*
 import kotlinx.android.synthetic.main.new_item_route_list.view.*
 import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.models.Route
 
 class NewRouteAdapter(var onItemClickRv: OnItemClickRv) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

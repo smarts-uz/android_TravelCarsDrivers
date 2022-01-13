@@ -9,22 +9,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
-import uz.qwerty.travelcarsdrivers.presentation.ui.common.course.CourseViewModel
-import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
-import uz.qwerty.travelcarsdrivers.presentation.ui.state.Fail
-import uz.qwerty.travelcarsdrivers.presentation.ui.state.Loading
-import uz.qwerty.travelcarsdrivers.presentation.ui.state.ServerError
-import uz.qwerty.travelcarsdrivers.presentation.ui.state.Success
-import uz.qwerty.travelcarsdrivers.util.Event
-import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 
 @AndroidEntryPoint

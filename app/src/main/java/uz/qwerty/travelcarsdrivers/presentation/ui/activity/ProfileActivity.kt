@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_profile.nav_view
 import kotlinx.android.synthetic.main.activity_profile.toolbar_title
 import kotlinx.android.synthetic.main.content_profile.*
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import uz.qwerty.travelcarsdrivers.domain.models.User
 

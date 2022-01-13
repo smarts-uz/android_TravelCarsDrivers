@@ -16,13 +16,17 @@ import kotlinx.android.synthetic.main.content_calendar.*
 import kotlinx.android.synthetic.main.item_route_list.view.*
 import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.util.TravelCarsApi
+import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.models.Route
+import uz.qwerty.travelcarsdrivers.util.resource.ResUtilImpl
+import javax.inject.Inject
 
 class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val banners: MutableList<Route> = mutableListOf()
 
+    @Inject
+    private lateinit var resUtil: ResUtilImpl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return RouteViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_route_list, parent, false)
@@ -128,7 +132,7 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 /**
                  * my add
                  */
-                itemView.bookingCard.setBackgroundResource(R.color.buttonBackgroundColor)
+                itemView.bookingCard.setBackgroundResource(R.color.colorAccent)
             }
         }
 
