@@ -71,6 +71,7 @@ class ProfileActivity : AppCompatActivity() {
             current_pin.addTextChangedListener {
                 save_button.isEnabled = !it.isNullOrBlank() && !confirm_new_pin.text.isNullOrBlank()&& !new_pin.text.isNullOrBlank()
             }
+
             new_pin.addTextChangedListener {
                 save_button.isEnabled = !it.isNullOrBlank() && !confirm_new_pin.text.isNullOrBlank() && !current_pin.text.isNullOrBlank()
             }

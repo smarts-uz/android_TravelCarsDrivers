@@ -373,14 +373,30 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:clickable="true"
+        android:elevation="20dp"
         android:focusable="true"
-        android:src="@drawable/ic_send"
-        app:elevation="0dp"
+        app:elevation="20dp"
         app:fabCustomSize="64dp"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:maxImageSize="24dp" />
+        app:maxImageSize="24dp"
+        app:srcCompat="@drawable/ic_send" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/floatingActionButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:src="@drawable/ic_send"-->
+<!--        app:elevation="0dp"-->
+<!--        app:fabCustomSize="64dp"-->
+<!--        app:fabSize="auto"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:maxImageSize="24dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

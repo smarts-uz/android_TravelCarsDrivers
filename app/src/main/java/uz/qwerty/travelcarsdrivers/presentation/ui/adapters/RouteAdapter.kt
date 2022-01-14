@@ -25,8 +25,6 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val banners: MutableList<Route> = mutableListOf()
 
-    @Inject
-    private lateinit var resUtil: ResUtilImpl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return RouteViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_route_list, parent, false)

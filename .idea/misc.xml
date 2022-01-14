@@ -21,12 +21,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_no_connection.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/activity_pin.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_trips.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_weather.xml" value="0.165" />
         <entry key="app/src/main/res/layout/base_dialog_layout.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/content_calendar.xml" value="0.165" />
         <entry key="app/src/main/res/layout/content_course.xml" value="0.20185185185185187" />
+        <entry key="app/src/main/res/layout/content_profile.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/item_course.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_route_list.xml" value="0.165" />
         <entry key="app/src/main/res/layout/new_item_route_list.xml" value="0.25" />
