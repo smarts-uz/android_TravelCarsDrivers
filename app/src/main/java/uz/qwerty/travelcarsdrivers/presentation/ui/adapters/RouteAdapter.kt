@@ -130,7 +130,7 @@ class RouteAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 /**
                  * my add
                  */
-                itemView.bookingCard.setBackgroundResource(R.color.colorAccent)
+                itemView.bookingCard.setBackgroundResource(R.color.colorAccent2)
             }
         }
 

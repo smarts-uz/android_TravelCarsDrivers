@@ -12,13 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_calendar.*
+import kotlinx.android.synthetic.main.item_route_list.view.*
 import kotlinx.android.synthetic.main.new_item_route_list.view.*
+import kotlinx.android.synthetic.main.new_item_route_list.view.bookingCard
 import uz.qwerty.travelcarsdrivers.presentation.ui.activity.BookingActivity
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
 import uz.qwerty.travelcarsdrivers.domain.models.Route
 
-class NewRouteAdapter(var onItemClickRv: OnItemClickRv) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewRouteAdapter(var onItemClickRv: OnItemClickRv) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val banners: MutableList<Route> = mutableListOf()
 
@@ -51,7 +54,7 @@ class NewRouteAdapter(var onItemClickRv: OnItemClickRv) : RecyclerView.Adapter<R
             id = banner.id
             booking_id = banner.booking_id
 
-            itemView.setOnClickListener { onItemClickRv.clickItem(banner) }
+            itemView.addCarsList.setOnClickListener { onItemClickRv.clickItem(banner) }
 
             var citiesText = banner.city_from + " - " + banner.city_to
             if (banner.reverse == 1) {
@@ -126,6 +129,7 @@ class NewRouteAdapter(var onItemClickRv: OnItemClickRv) : RecyclerView.Adapter<R
             } else {
                 status.visibility = View.INVISIBLE
                 trip_booked.visibility = View.VISIBLE
+                itemView.bookingCard.setBackgroundResource(R.color.colorAccent2)
             }
         }
 
