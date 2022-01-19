@@ -11,7 +11,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -115,17 +115,43 @@
                     app:layout_collapseMode="pin"
                     app:title="">
 
-                    <TextView
-                        android:id="@+id/toolbar_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:maxLines="1"
-                        android:text="@string/app_name"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:id="@+id/weatherBtn"
+                            android:layout_width="?attr/actionBarSize"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="16dp"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_cloud_line" />
+
+                        <TextView
+                            android:id="@+id/toolbar_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginBottom="0dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="@string/app_name"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/currencyBtn"
+                            android:layout_width="?attr/actionBarSize"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_alignParentStart="true"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_money" />
+                    </RelativeLayout>
+
                 </androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -232,57 +258,57 @@
                     app:layout_constraintTop_toBottomOf="@id/active_trips_items" />
 
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/l1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/counts_label">
+                <!--                <androidx.appcompat.widget.LinearLayoutCompat-->
+                <!--                    android:id="@+id/l1"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="16dp"-->
+                <!--                    android:layout_marginEnd="16dp"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="2"-->
+                <!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--                    app:layout_constraintRight_toRightOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/counts_label">-->
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/currencyBtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" >
+                <!--                    <androidx.cardview.widget.CardView-->
+                <!--                       -->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:layout_weight="1" >-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/status_done"
-                            android:padding="16dp"
-                            android:text="курса валюты"
-                            android:textColor="@color/textWhite"
-                            android:textStyle="bold" />
-
-
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/weatherBtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" >
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/status_proceed"
-                            android:padding="16dp"
-                            android:text="погоды"
-                            android:textColor="@color/textBlack"
-                            android:textStyle="bold" />
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:background="@drawable/status_done"-->
+                <!--                            android:padding="16dp"-->
+                <!--                            android:text="курса валюты"-->
+                <!--                            android:textColor="@color/textWhite"-->
+                <!--                            android:textStyle="bold" />-->
 
 
 
-                    </androidx.cardview.widget.CardView>
+                <!--                    </androidx.cardview.widget.CardView>-->
+                <!--                    <androidx.cardview.widget.CardView-->
+                <!--                        -->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:layout_weight="1" >-->
+
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:background="@drawable/status_proceed"-->
+                <!--                            android:padding="16dp"-->
+                <!--                            android:text="погоды"-->
+                <!--                            android:textColor="@color/textBlack"-->
+                <!--                            android:textStyle="bold" />-->
 
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--                    </androidx.cardview.widget.CardView>-->
+
+
+                <!--                </androidx.appcompat.widget.LinearLayoutCompat>-->
 
 
                 <TextView
@@ -299,7 +325,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/l1" />
+                    app:layout_constraintTop_toBottomOf="@id/counts_label" />
 
 
                 <TextView
@@ -385,18 +411,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:maxImageSize="24dp"
         app:srcCompat="@drawable/ic_send" />
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/floatingActionButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:clickable="true"-->
-<!--        android:focusable="true"-->
-<!--        android:src="@drawable/ic_send"-->
-<!--        app:elevation="0dp"-->
-<!--        app:fabCustomSize="64dp"-->
-<!--        app:fabSize="auto"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:maxImageSize="24dp" />-->
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/floatingActionButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:clickable="true"-->
+    <!--        android:focusable="true"-->
+    <!--        android:src="@drawable/ic_send"-->
+    <!--        app:elevation="0dp"-->
+    <!--        app:fabCustomSize="64dp"-->
+    <!--        app:fabSize="auto"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:maxImageSize="24dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

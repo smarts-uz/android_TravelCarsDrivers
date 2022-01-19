@@ -13,8 +13,10 @@
         <entry key="app/src/main/res/drawable-xhdpi/ic_success.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable/bottomlayout.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.23425925925925925" />
+        <entry key="app/src/main/res/drawable/ic_cloud_line.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/drawable/ic_money.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.23425925925925925" />
-        <entry key="app/src/main/res/layout-v21/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout-v21/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.1685185185185185" />
         <entry key="app/src/main/res/layout/activity_course.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19947916666666668" />
