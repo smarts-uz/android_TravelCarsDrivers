@@ -40,37 +40,34 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
 
     private fun loadView() {
         binding.rv.adapter = courseAdapter
-        vm.getAllCourse()
-        //vm.getCourse()
+        //vm.getAllCourse()
+        vm.getCourse()
     }
 
     private fun loadObserver() {
-/*
-
         vm.courseLiveData.observe(this, { event ->
             event.getContentIfNotHandled()?.let {
                 render(it)
             }
         })
- */
 
-        vm.currencyLiveData.observe(this, {
-            binding.progressBar.gone()
-            binding.skelton.gone()
-            courseAdapter.submitList(it)
-        })
-        vm.loadingLiveData.observe(this, {
-            binding.progressBar.visible()
-        })
-        vm.connectLiveData.observe(this, {
-            if (it) showErrorMessage(
-                getString(R.string.warning),
-                getString(R.string.no_connection_icon)
-            )
-        })
-        vm.errorLiveData.observe(this, {
-            showErrorMessage(getString(R.string.warning), it!!)
-        })
+
+//        vm.currencyLiveData.observe(this, {
+//            binding.progressBar.gone()
+//            courseAdapter.submitList(it)
+//        })
+//        vm.loadingLiveData.observe(this, {
+//            binding.progressBar.visible()
+//        })
+//        vm.connectLiveData.observe(this, {
+//            if (it) showErrorMessage(
+//                getString(R.string.warning),
+//                getString(R.string.no_connection_icon)
+//            )
+//        })
+//        vm.errorLiveData.observe(this, {
+//            showErrorMessage(getString(R.string.warning), it!!)
+//        })
 
     }
 

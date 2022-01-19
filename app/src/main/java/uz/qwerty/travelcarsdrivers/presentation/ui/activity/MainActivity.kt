@@ -21,6 +21,7 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingActiveAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.BookingBannerAdapter
 import uz.qwerty.travelcarsdrivers.util.OnStartChecks
 import uz.qwerty.travelcarsdrivers.domain.models.User
+import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

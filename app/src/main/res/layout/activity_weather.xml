@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlue"
+    android:background="@drawable/banner"
     android:orientation="vertical"
     tools:context=".presentation.ui.activity.WeatherActivity">
 
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -33,7 +33,8 @@
             android:layout_marginTop="10dp"
             android:fontFamily="casual"
             android:text="Tuesday, 15"
-            android:textColor="@color/colorOffWhite"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
             android:textSize="20dp" />
 
         <TextView
@@ -332,6 +333,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="18dp"
+            android:background="@drawable/banner"
             android:orientation="vertical">
 
             <LinearLayout
@@ -351,7 +353,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:text="Wednesday, 16"
-                    android:textColor="@color/colorOffWhite" />
+                    android:textColor="@color/colorWhite" />
 
                 <ImageView
                     android:layout_width="30dp"
