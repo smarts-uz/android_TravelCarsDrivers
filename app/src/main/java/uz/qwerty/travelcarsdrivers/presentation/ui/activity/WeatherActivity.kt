@@ -37,8 +37,10 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
     private fun loadObserver() {
         vm.weatherLiveData.observe(this, {
             val weatherResponse = it
-            binding.temp.text = "+${weatherResponse.main.temp}°"
-            binding.nameCountry.text = weatherResponse.name
+            binding.temp.text = "${weatherResponse.main.temp.toInt()}°"
+            val currentYear = SimpleDateFormat("yyyy",Locale.getDefault()).format(Date())
+            val currentMonth = SimpleDateFormat("MM",Locale.getDefault()).format(Date())
+            val currentDay = SimpleDateFormat("dd",Locale.getDefault()).format(Date())
 
             var sCalendar = Calendar.getInstance()
             val day = sCalendar.get(Calendar.DAY_OF_MONTH)
@@ -46,17 +48,14 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
             val d = Date()
             val dayOfTheWeek: String = sdf.format(d)
 
-            binding.date.text = "$dayOfTheWeek $day"
+            //binding.date.text = "$dayOfTheWeek $day"
+            binding.date.text = "$currentDay.$currentMonth.$currentYear"
             binding.humidity.text = "${weatherResponse.main.humidity}%"
-            binding.wind.text = "${weatherResponse.wind.speed}m/s"
+            binding.wind.text = "${weatherResponse.wind.speed}м/с"
+            binding.min.text = "${weatherResponse.main.tempMin}%"
+            binding.max.text = "${weatherResponse.main.tempMax}%"
             binding.pressure.text = weatherResponse.main.pressure.toString()
-            binding.w1.text = "+${weatherResponse.main.temp}°"
-            binding.w2.text = "+${weatherResponse.main.temp}°"
-            binding.w3.text = "+${weatherResponse.main.temp}°"
-            binding.w4.text = "+${weatherResponse.main.temp}°"
-            binding.w5.text = "+${weatherResponse.main.temp}°"
-            binding.w6.text = "+${weatherResponse.main.temp}°"
-            binding.dayWeek.text = "$dayOfTheWeek $day"
+
             binding.progressBar.gone()
         })
         vm.loadingLiveData.observe(this,{
