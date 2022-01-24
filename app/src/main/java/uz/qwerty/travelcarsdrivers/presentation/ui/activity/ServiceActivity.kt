@@ -18,9 +18,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_service.*
 import kotlinx.android.synthetic.main.activity_trips.*
 import kotlinx.android.synthetic.main.activity_trips.floatingActionButton
 import kotlinx.android.synthetic.main.activity_trips.toolbar_title
+import kotlinx.android.synthetic.main.activity_trips.trip_nav_view
 import kotlinx.android.synthetic.main.content_profile.*
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.data.remote.api.TravelCarsApi
@@ -64,14 +66,14 @@ class ServiceActivity : AppCompatActivity() {
 
 
         floatingActionButton.setOnClickListener {
-            if (tabBar.selectedTabPosition != 1) {
-                bookingAdapter.review = false
-                toolbar_title.text = getString(R.string.service)
-                tabBar.visibility = View.VISIBLE
-                type = "active"
-                trip_nav_view.selectedItemId = R.id.navigation_invisible
-                tabBar.getTabAt(1)!!.select()
-            }
+//            if (tabBar.selectedTabPosition != 1) {
+//                bookingAdapter.review = false
+//                toolbar_title.text = getString(R.string.service)
+//                tabBar.visibility = View.VISIBLE
+//                type = "active"
+//                trip_nav_view.selectedItemId = R.id.navigation_invisible
+//                tabBar.getTabAt(1)!!.select()
+//            }
         }
     }
 

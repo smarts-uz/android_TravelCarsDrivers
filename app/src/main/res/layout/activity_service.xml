@@ -29,7 +29,7 @@
             android:ellipsize="end"
             android:gravity="center_horizontal"
             android:maxLines="1"
-            android:text="@string/trips"
+            android:text="@string/service"
             android:textColor="@color/colorWhite"
             android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
@@ -70,6 +70,7 @@
 
 
                     <com.lijiankun24.shadowlayout.ShadowLayout
+                        android:id="@+id/currencyBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:shadowColor="#333E4E85"
@@ -77,7 +78,6 @@
                         app:shadowRadius="15dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/currencyBtn"
                             android:layout_width="match_parent"
                             android:layout_height="72dp"
                             android:background="@drawable/shape_shadow_card_inner"
@@ -116,6 +116,7 @@
 
                     </com.lijiankun24.shadowlayout.ShadowLayout>
                     <com.lijiankun24.shadowlayout.ShadowLayout
+                        android:id="@+id/weatherBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:shadowColor="#333E4E85"
@@ -123,7 +124,7 @@
                         app:shadowRadius="15dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/conversion_layout2"
+
                             android:layout_width="match_parent"
                             android:layout_height="72dp"
                             android:background="@drawable/shape_shadow_card_inner"
