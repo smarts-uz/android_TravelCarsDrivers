@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/layout/content_course.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/layout/content_profile.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/item_actives_layout.xml" value="0.20092592592592592" />
-        <entry key="app/src/main/res/layout/item_course.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_course.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_route_list.xml" value="0.165" />
         <entry key="app/src/main/res/layout/new_item_route_list.xml" value="0.165" />
         <entry key="app/src/main/res/layout/notification.xml" value="0.25" />

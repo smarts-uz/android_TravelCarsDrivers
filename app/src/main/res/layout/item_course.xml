@@ -16,85 +16,89 @@
         android:scaleType="centerCrop"
         android:src="@drawable/currency_item_background" />
 
-    <aglibs.loading.skeleton.layout.SkeletonRelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/skelton"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/currency_type_imageview"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/exchange_m" />
-
-        <TextView
-            android:id="@+id/currency_type_textview"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"
-            android:layout_toStartOf="@+id/currency_sell_textview"
-            android:layout_toEndOf="@id/currency_type_imageview"
-            android:fontFamily="@font/nunito"
-            android:text=""
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Us dollor"
             android:textColor="#202326"
+            android:maxLength="15"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintEnd_toStartOf="@id/tv3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/currency_sell_textview"
+            android:id="@+id/tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="29dp"
-            android:layout_toStartOf="@id/dateCurrency"
-            android:ellipsize="end"
-            android:fontFamily="@font/nunito"
-            android:maxLines="1"
-            android:text="10 123478"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/dateCurrency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
+            android:layout_below="@id/tv1"
+            android:layout_alignStart="@id/tv1"
+            android:layout_marginStart="16dp"
             android:ellipsize="end"
             android:fontFamily="@font/nunito"
             android:maxLines="1"
             android:text="10 2504."
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@id/guidLine"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv1" />
 
         <TextView
-            android:id="@+id/ccyNameEng"
+            android:id="@+id/tv3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/currency_sell_textview"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/nunito"
-            android:textColor="#7a869a"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@id/tv1"
+            android:text="Дата"
+            android:textColor="#202326"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guidLine"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/dateCurrency"
-            android:layout_marginTop="14dp"
+            android:layout_below="@id/tv3"
+            android:layout_alignStart="@id/tv3"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@id/tv2"
+            android:ellipsize="end"
             android:fontFamily="@font/nunito"
-            android:text="Date"
-            android:textColor="#7a869a"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
-    </aglibs.loading.skeleton.layout.SkeletonRelativeLayout>
+            android:maxLines="1"
+            android:text="10 2504."
+            android:textColor="@color/colorPrimary"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guidLine"
+            app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
 

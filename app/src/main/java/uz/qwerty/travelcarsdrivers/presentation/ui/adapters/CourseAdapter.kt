@@ -24,11 +24,10 @@ class CourseAdapter : SuperAdapter<CurrencyItem>(
 
     override fun bind(t: CurrencyItem, view: View, adapterPosition: Int) {
         val binding = ItemCourseBinding.bind(view)
-        binding.currencyTypeTextview.text = t.ccy
-        binding.ccyNameEng.text = t.ccyNmEN
-        binding.currencySellTextview.text = t.rate
-        binding.dateCurrency.text = t.date
-        binding.skelton.stopLoading()
+        binding.tv1.text = t.ccyNmRU
+        binding.tv2.text = t.rate
+        binding.tv4.text = t.date
+
     }
 
 
