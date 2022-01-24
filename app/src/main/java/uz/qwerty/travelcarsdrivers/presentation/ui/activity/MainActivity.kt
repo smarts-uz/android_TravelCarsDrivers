@@ -48,12 +48,24 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     return@OnNavigationItemSelectedListener true
                 }
+                /**
+                 *
+                 *  R.id.navigation_clock -> {
+                val intent = Intent(this, TripsActivity::class.java)
+                intent.putExtra("type", "review")
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener true
+                }
+                 *
+                 */
+
                 R.id.navigation_clock -> {
-                    val intent = Intent(this, TripsActivity::class.java)
+                    val intent = Intent(this, ServiceActivity::class.java)
                     intent.putExtra("type", "review")
                     startActivity(intent)
                     return@OnNavigationItemSelectedListener true
                 }
+
                 R.id.navigation_stats -> {
                     val intent = Intent(this, CalendarActivity::class.java)
                     startActivity(intent)
@@ -77,12 +89,8 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.banner_list)
         bannerIndicator = findViewById(R.id.banner_indicator)
         viewPager.adapter = bannerAdapter
-        currencyBtn.setOnClickListener {
-            startActivity(Intent(this,CourseActivity::class.java))
-        }
-        weatherBtn.setOnClickListener {
-            startActivity(Intent(this,WeatherActivity::class.java))
-        }
+
+
 
         activeAdapter = BookingActiveAdapter()
 

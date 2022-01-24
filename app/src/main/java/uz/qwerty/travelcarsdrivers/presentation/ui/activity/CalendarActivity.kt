@@ -170,6 +170,23 @@ class CalendarActivity : AppCompatActivity() {
                     startActivity(intent)
                     return@OnNavigationItemSelectedListener true
                 }
+                /**
+                 *
+                 *   R.id.navigation_clock -> {
+                val intent = Intent(this, TripsActivity::class.java)
+                intent.putExtra("type", "review")
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener true
+                }
+                 *
+                 */
+                R.id.navigation_clock -> {
+                    val intent = Intent(this, ServiceActivity::class.java)
+                    intent.putExtra("type", "review")
+                    startActivity(intent)
+                    return@OnNavigationItemSelectedListener true
+                }
+
                 R.id.navigation_clock -> {
                     val intent = Intent(this, TripsActivity::class.java)
                     intent.putExtra("type", "review")

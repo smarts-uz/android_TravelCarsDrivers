@@ -55,7 +55,7 @@ class RetrofitModule {
         .addInterceptor(logging)
         //.cache(cache)
         .addInterceptor(provideOfflineCacheInterceptor())
-        .addInterceptor(ChuckInterceptor(context))//for seeing responses and requests from emulator
+        //.addInterceptor(ChuckInterceptor(context))//for seeing responses and requests from emulator
         .addInterceptor {
             val requestOld = it.request()
             val request = requestOld.newBuilder()

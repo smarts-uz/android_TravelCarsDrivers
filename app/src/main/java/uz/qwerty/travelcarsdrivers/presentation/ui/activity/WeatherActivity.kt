@@ -28,6 +28,7 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
         return ActivityWeatherBinding.inflate(layoutInflater)
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreated(savedInstanceState: Bundle?) {
         loadObserver()
     }

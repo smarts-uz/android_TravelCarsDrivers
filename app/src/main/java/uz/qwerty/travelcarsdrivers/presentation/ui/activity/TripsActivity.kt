@@ -209,17 +209,30 @@ class TripsActivity : AppCompatActivity(), ListItemClickListener {
                 startActivity(intent)
                 return@OnNavigationItemSelectedListener true
             }
+
+            /**
+             *
+             * R.id.navigation_clock -> {
+            if (type != "review") {
+            val intent = Intent(this, TripsActivity::class.java)
+            intent.putExtra("type", "review")
+            startActivity(intent)
+            }
+            return@OnNavigationItemSelectedListener true
+            }
+             */
             R.id.navigation_clock -> {
                 if (type != "review") {
-                    val intent = Intent(this, TripsActivity::class.java)
-                    intent.putExtra("type", "review")
+                    val intent = Intent(this, ServiceActivity::class.java)
                     startActivity(intent)
                 }
                 return@OnNavigationItemSelectedListener true
             }
+
             R.id.navigation_invisible -> {
                 return@OnNavigationItemSelectedListener true
             }
+
             R.id.navigation_stats -> {
                 val intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)

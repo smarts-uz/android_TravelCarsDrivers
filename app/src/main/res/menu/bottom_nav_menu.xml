@@ -7,7 +7,7 @@
         android:title="@string/title_home" />
     <item
         android:id="@+id/navigation_clock"
-        android:icon="@drawable/ic_clock"
+        android:icon="@drawable/ic_align_center"
         android:title="@string/title_dashboard" />
     <item
         android:id="@+id/navigation_invisible"

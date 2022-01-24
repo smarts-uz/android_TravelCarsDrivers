@@ -32,6 +32,7 @@
     <string name="no_routes">Нет маршрутов</string>
 
     <string name="trips">Заявки</string>
+    <string name="service">Сервис</string>
     <string name="trips_done">Обработанные</string>
     <string name="trips_active">Текущие</string>
     <string name="trips_proceed">На рассмотрении</string>
