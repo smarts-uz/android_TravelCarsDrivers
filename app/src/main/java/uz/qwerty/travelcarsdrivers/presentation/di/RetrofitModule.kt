@@ -13,6 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uz.qwerty.travelcarsdrivers.util.config.Config.NEW_VALYUT
 import uz.qwerty.travelcarsdrivers.util.config.Config.VALYUT
 import uz.qwerty.travelcarsdrivers.util.config.Config.WEATHER_URL
 import uz.qwerty.travelcarsdrivers.util.isConnected
@@ -38,7 +39,7 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun getApi(): String = VALYUT
+    fun getApi(): String = NEW_VALYUT
 
     @Provides
     @Singleton
@@ -55,7 +56,7 @@ class RetrofitModule {
         .addInterceptor(logging)
         //.cache(cache)
         .addInterceptor(provideOfflineCacheInterceptor())
-        //.addInterceptor(ChuckInterceptor(context))//for seeing responses and requests from emulator
+        .addInterceptor(ChuckInterceptor(context))//for seeing responses and requests from emulator
         .addInterceptor {
             val requestOld = it.request()
             val request = requestOld.newBuilder()
@@ -79,6 +80,17 @@ class RetrofitModule {
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+//    @Provides
+//    @Singleton
+//    @Named("NewCurrency")
+//    fun getNewCurrencyRetrofit(
+//        client: OkHttpClient
+//    ): Retrofit = Retrofit.Builder()
+//        .baseUrl(NEW_VALYUT)
+//        .client(client)
+//        .addConverterFactory(GsonConverterFactory.create())
+//        .build()
 
     @Provides
     @Singleton

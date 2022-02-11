@@ -19,10 +19,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class ApiModule {
-    @Provides
-    @Singleton
-    fun provideCourseApi(@Named("Currency")retrofit: Retrofit): CourseApi = retrofit.create(CourseApi::class.java)
-    @Provides
-    @Singleton
-    fun provideWeatherApi(@Named("Weather")retrofit: Retrofit):WeatherApi = retrofit.create(WeatherApi::class.java)
+
+    @[Provides Singleton]
+    fun provideCourseApi(@Named("Currency") retrofit: Retrofit): CourseApi =
+        retrofit.create(CourseApi::class.java)
+
+//    @[Provides Singleton]
+//    fun provideNewCourseApi(@Named("NewCurrency") retrofit: Retrofit): CourseApi =
+//        retrofit.create(CourseApi::class.java)
+
+
+    @[Provides Singleton]
+    fun provideWeatherApi(@Named("Weather") retrofit: Retrofit): WeatherApi =
+        retrofit.create(WeatherApi::class.java)
 }
