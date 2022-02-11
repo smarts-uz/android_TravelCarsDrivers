@@ -35,12 +35,12 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadObserver() {
-        vm.weatherLiveData.observe(this, {
+        vm.weatherLiveData.observe(this) {
             val weatherResponse = it
             binding.temp.text = "${weatherResponse.main.temp.toInt()}°"
-            val currentYear = SimpleDateFormat("yyyy",Locale.getDefault()).format(Date())
-            val currentMonth = SimpleDateFormat("MM",Locale.getDefault()).format(Date())
-            val currentDay = SimpleDateFormat("dd",Locale.getDefault()).format(Date())
+            val currentYear = SimpleDateFormat("yyyy", Locale.getDefault()).format(Date())
+            val currentMonth = SimpleDateFormat("MM", Locale.getDefault()).format(Date())
+            val currentDay = SimpleDateFormat("dd", Locale.getDefault()).format(Date())
 
             var sCalendar = Calendar.getInstance()
             val day = sCalendar.get(Calendar.DAY_OF_MONTH)
@@ -57,17 +57,20 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
             binding.pressure.text = weatherResponse.main.pressure.toString()
 
             binding.progressBar.gone()
-        })
-        vm.loadingLiveData.observe(this,{
+        }
+        vm.loadingLiveData.observe(this) {
             binding.progressBar.visible()
-        })
+        }
 
-        vm.errorLiveData.observe(this, {
+        vm.errorLiveData.observe(this) {
             showErrorMessage(getString(R.string.warning), it)
-        })
-        vm.connectLiveData.observe(this,{
-            if (it) showErrorMessage(getString(R.string.warning),getString(R.string.no_connection_icon))
-        })
+        }
+        vm.connectLiveData.observe(this) {
+            if (it) showErrorMessage(
+                getString(R.string.warning),
+                getString(R.string.no_connection_icon)
+            )
+        }
     }
 
 }
