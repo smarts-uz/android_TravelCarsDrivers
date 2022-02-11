@@ -15,10 +15,10 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme.NoActionBar"
+        app:layout_collapseMode="pin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_collapseMode="pin"
         app:title="">
 
         <TextView
@@ -36,13 +36,14 @@
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/activity_main_swipe"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toTopOf="@id/trip_nav_view"
-        android:id="@+id/activity_main_swipe">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/account_cardview"
             android:layout_width="match_parent"
@@ -50,125 +51,292 @@
             android:paddingBottom="50dp"
             app:cardElevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.45" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
-                    android:orientation="vertical"
-                    android:paddingBottom="120dp"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guidLine">
 
 
-                    <com.lijiankun24.shadowlayout.ShadowLayout
-                        android:id="@+id/currencyBtn"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCurrency"
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    <ProgressBar
+                        android:id="@+id/currencyProgressBar"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:shadowColor="#333E4E85"
-                        app:shadowDy="16dp"
-                        app:shadowRadius="15dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="72dp"
-                            android:background="@drawable/shape_shadow_card_inner"
-                            android:clipToPadding="false"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/time"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginEnd="12dp"
-                                android:background="@drawable/rounded_rectangle_button_background_colored"
-                                android:padding="8dp"
-                                android:tint="@color/colorWhite"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_money" />
-
-                            <TextView
-                                android:id="@+id/time_title1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp"
-                                android:lineSpacingExtra="-5sp"
-                                android:text="Курса валюты"
-                                android:textColor="#191A22"
-                                app:layout_constraintBottom_toBottomOf="@id/time"
-                                android:textSize="15sp"
-                                app:layout_constraintStart_toEndOf="@id/time"
-                                app:layout_constraintTop_toTopOf="@id/time" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </com.lijiankun24.shadowlayout.ShadowLayout>
-                    <com.lijiankun24.shadowlayout.ShadowLayout
-                        android:id="@+id/weatherBtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:shadowColor="#333E4E85"
-                        app:shadowDy="16dp"
-                        app:shadowRadius="15dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-
-                            android:layout_width="match_parent"
-                            android:layout_height="72dp"
-                            android:background="@drawable/shape_shadow_card_inner"
-                            android:clipToPadding="false"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/weather"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginEnd="12dp"
-                                android:background="@drawable/rounded_rectangle_button_background_colored"
-                                android:padding="8dp"
-                                android:tint="@color/colorWhite"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_cloud_line" />
-
-                            <TextView
-                                android:id="@+id/time_title2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp"
-                                android:lineSpacingExtra="-5sp"
-                                android:text="Погода"
-                                android:textColor="#191A22"
-                                app:layout_constraintBottom_toBottomOf="@id/weather"
-                                android:textSize="15sp"
-                                app:layout_constraintStart_toEndOf="@id/weather"
-                                app:layout_constraintTop_toTopOf="@id/weather" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </com.lijiankun24.shadowlayout.ShadowLayout>
-
-
-
-
-
+                        android:layout_gravity="center" />
                 </LinearLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@id/guidLine"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/banner"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/nameCountry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="Ташкент"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="15dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:id="@+id/temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="25dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="8dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:src="@drawable/bg" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Мин"
+                                    android:textColor="@color/colorOffWhite" />
+
+                                <TextView
+                                    android:id="@+id/min"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="12°"
+                                    android:textColor="@color/colorWhite" />
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/bg" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Мах"
+                                    android:textColor="@color/colorOffWhite" />
+
+                                <TextView
+                                    android:id="@+id/max"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="12°"
+                                    android:textColor="@color/colorWhite" />
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/bg" />
+
+                            </LinearLayout>
+
+                            <!--            <LinearLayout-->
+                            <!--                android:layout_width="wrap_content"-->
+                            <!--                android:layout_height="wrap_content"-->
+                            <!--                android:layout_weight="1"-->
+                            <!--                android:orientation="vertical">-->
+
+                            <!--                <TextView-->
+                            <!--                    android:layout_width="wrap_content"-->
+                            <!--                    android:layout_height="wrap_content"-->
+                            <!--                    android:layout_marginLeft="10dp"-->
+                            <!--                    android:text="Now"-->
+                            <!--                    android:textColor="@color/colorOffWhite" />-->
+
+                            <!--                <TextView-->
+                            <!--                    android:id="@+id/w3"-->
+                            <!--                    android:layout_width="wrap_content"-->
+                            <!--                    android:layout_height="wrap_content"-->
+                            <!--                    android:layout_marginLeft="10dp"-->
+                            <!--                    android:text="12°"-->
+                            <!--                    android:textColor="@color/colorWhite" />-->
+
+                            <!--                <ImageView-->
+                            <!--                    android:layout_width="40dp"-->
+                            <!--                    android:layout_height="40dp"-->
+                            <!--                    android:src="@drawable/bg" />-->
+
+                            <!--            </LinearLayout>-->
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Влажность"
+                                    android:textColor="@color/colorOffWhite" />
+
+                                <TextView
+                                    android:id="@+id/humidity"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="78%"
+                                    android:textColor="@color/colorWhite" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Ветер"
+                                    android:textColor="@color/colorOffWhite" />
+
+                                <TextView
+                                    android:id="@+id/wind"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="3m/s"
+                                    android:textColor="@color/colorWhite" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Давление воздуха"
+                                    android:textColor="@color/colorOffWhite" />
+
+                                <TextView
+                                    android:id="@+id/pressure"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="@color/colorWhite" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -176,11 +344,10 @@
         </com.google.android.material.card.MaterialCardView>
 
 
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/trip_nav_view"
+        android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"

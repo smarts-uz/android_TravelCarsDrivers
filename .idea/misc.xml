@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable-xhdpi/base_dialog_background.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable-xhdpi/base_rounded_button.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_success.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/drawable/banner.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bottomlayout.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.23425925925925925" />
         <entry key="app/src/main/res/drawable/ic_clock.xml" value="0.21822916666666667" />
@@ -27,15 +28,16 @@
         <entry key="app/src/main/res/layout/activity_no_connection.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/activity_pin.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_service.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_service.xml" value="0.11" />
         <entry key="app/src/main/res/layout/activity_trips.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_weather.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_weather.xml" value="0.125" />
         <entry key="app/src/main/res/layout/base_dialog_layout.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/content_calendar.xml" value="0.165" />
         <entry key="app/src/main/res/layout/content_course.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/layout/content_profile.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/item_actives_layout.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/layout/item_course.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_new_currency.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/item_route_list.xml" value="0.165" />
         <entry key="app/src/main/res/layout/new_item_route_list.xml" value="0.165" />
         <entry key="app/src/main/res/layout/notification.xml" value="0.25" />
