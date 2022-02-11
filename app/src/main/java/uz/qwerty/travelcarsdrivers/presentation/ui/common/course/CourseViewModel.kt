@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
+import uz.qwerty.travelcarsdrivers.domain.models.NewCurrencyResponse
 import uz.qwerty.travelcarsdrivers.domain.repository.course.CourseRepository
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseVM
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.*
@@ -31,13 +32,16 @@ class CourseViewModel @Inject constructor(
     private var _courseLiveData = MutableLiveData<Event<ViewState>>()
     val courseLiveData: LiveData<Event<ViewState>> get() = _courseLiveData
 
+
+    private var _currencyNewLiveData = MutableLiveData<Event<ViewState>>()
+    val currencyNewLiveData: LiveData<Event<ViewState>> get() = _currencyNewLiveData
+
+
     private val _currencyLiveData = MutableLiveData<List<CurrencyItem>>()
     val currencyLiveData: LiveData<List<CurrencyItem>> get() = _currencyLiveData
 
-
     private val _currencyErrorLiveData = MutableLiveData<String>()
     val currencyErrorLiveData: LiveData<String> get() = _currencyErrorLiveData
-
 
     private var _state = MutableLiveData<ViewState>()
     val state: LiveData<ViewState> get() = _state
@@ -45,6 +49,9 @@ class CourseViewModel @Inject constructor(
     private var _courseState = MutableStateFlow<ViewState>(Empty)
     val courseState: StateFlow<ViewState> get() = courseState
 
+    init {
+        newCurrencyCourse()
+    }
 
     fun getCourse() {
         _courseLiveData.value = Event(Loading)
@@ -65,6 +72,28 @@ class CourseViewModel @Inject constructor(
                 }
             }
             _courseLiveData.value = Event(event)
+        }
+    }
+
+    private fun newCurrencyCourse() {
+        _currencyNewLiveData.value = Event(Loading)
+        viewModelScope.launch {
+            val event = repository.newCurrency()
+            when (event) {
+                is Success<*> -> {
+                    Timber.tag("zarnigor").d("Zarnigor malumot keldi")
+                }
+                is ServerError -> {
+                    Timber.tag("zarnigor").d("Zarnigor server error keldi")
+                }
+                is Fail -> {
+                    Timber.tag("zarnigor").d("Zarnigor fail keldi ${event.exception.message}")
+                }
+                else -> {
+                    Unit
+                }
+            }
+            _currencyNewLiveData.value = Event(event)
         }
     }
 
