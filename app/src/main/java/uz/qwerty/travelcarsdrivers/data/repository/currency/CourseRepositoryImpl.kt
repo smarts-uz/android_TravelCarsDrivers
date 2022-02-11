@@ -37,6 +37,19 @@ class CourseRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun newCurrency(): ViewState {
+        return try {
+            val course = api.newCurrency()
+            if (course.isSuccessful) {
+                Success(course.body())
+            } else {
+                ServerError(course.message(), course.code())
+            }
+        } catch (e: Exception) {
+            Fail(e)
+        }
+    }
+
     override fun getCurrency(): Flow<Result<List<CurrencyItem>>> = flow {
         try {
             val responseCourse = api.getCurrency()
@@ -63,5 +76,4 @@ class CourseRepositoryImpl @Inject constructor(
             Fail(e)
         }
     }
-
 }

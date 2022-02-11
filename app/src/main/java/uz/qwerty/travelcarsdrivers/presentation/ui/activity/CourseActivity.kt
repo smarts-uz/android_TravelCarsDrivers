@@ -1,24 +1,16 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
-import aglibs.loading.skeleton.layout.SkeletonRelativeLayout
 import android.os.Bundle
-import android.view.View
-import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
 import uz.qwerty.travelcarsdrivers.databinding.ActivityCourseBinding
+import uz.qwerty.travelcarsdrivers.domain.models.NewCurrencyResponse
 import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.CourseAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseActivity
 import uz.qwerty.travelcarsdrivers.presentation.ui.common.course.CourseViewModel
 import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.gone
-import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.showToast
 import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.visible
 import uz.qwerty.travelcarsdrivers.presentation.ui.state.*
 
@@ -45,11 +37,11 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
     }
 
     private fun loadObserver() {
-        vm.courseLiveData.observe(this, { event ->
+        vm.currencyNewLiveData.observe(this) { event ->
             event.getContentIfNotHandled()?.let {
                 render(it)
             }
-        })
+        }
 
 
 //        vm.currencyLiveData.observe(this, {
@@ -71,13 +63,39 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
 
     }
 
+//    private fun render(viewState: ViewState) {
+//
+//        if (viewState !is Loading) {
+//            //binding.swipeRefreshLayout.isRefreshing = false
+//            binding.progressBar.gone()
+//        }
+//        //MVI
+//        when (viewState) {
+//            is Fail -> {
+//                showErrorMessage(getString(R.string.warning), viewState.exception.message!!)
+//            }
+//            is Loading -> {
+//                //binding.swipeRefreshLayout.isRefreshing = true
+//                binding.progressBar.visible()
+//            }
+//            is ServerError -> {
+//                showErrorMessage(getString(R.string.warning), viewState.errorMessage)
+//            }
+//            is Success<*> -> {
+//                val list = viewState.data as List<CurrencyItem>
+//                courseAdapter.submitList(list)
+//            }
+//            else -> {}
+//        }
+//    }
+
     private fun render(viewState: ViewState) {
 
         if (viewState !is Loading) {
             //binding.swipeRefreshLayout.isRefreshing = false
             binding.progressBar.gone()
         }
-
+        //MVI
         when (viewState) {
             is Fail -> {
                 showErrorMessage(getString(R.string.warning), viewState.exception.message!!)
@@ -89,9 +107,21 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
             is ServerError -> {
                 showErrorMessage(getString(R.string.warning), viewState.errorMessage)
             }
+
             is Success<*> -> {
-                val list = viewState.data as List<CurrencyItem>
-                courseAdapter.submitList(list)
+                val list = viewState.data as List<NewCurrencyResponse>
+                val newList = ArrayList<NewCurrencyResponse>()
+                for (i in list.indices) {
+                    if (list[i].code == "USD" ||
+                        list[i].code == "EUR" ||
+                        list[i].code == "RUB"
+                    ) {
+                        val newCurrencyResponse = list[i]
+                        newList.addAll(listOf(newCurrencyResponse))
+                    }
+                }
+                courseAdapter.submitList(newList)
+
             }
             else -> {}
         }

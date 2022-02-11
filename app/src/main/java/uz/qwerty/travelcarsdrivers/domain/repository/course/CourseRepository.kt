@@ -18,5 +18,8 @@ interface CourseRepository {
 
 
     fun getCurrency(): Flow<Result<List<CurrencyItem>>>
+
     suspend fun getNewCourse(): ViewState
+
+    suspend fun newCurrency(): ViewState
 }

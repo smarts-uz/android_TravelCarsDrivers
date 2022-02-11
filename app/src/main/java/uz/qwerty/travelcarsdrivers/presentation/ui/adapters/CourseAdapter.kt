@@ -1,14 +1,10 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.adapters
 
 import android.view.View
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import uz.qwerty.travelcarsdrivers.R
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyItem
-import uz.qwerty.travelcarsdrivers.data.remote.response.course.CurrencyResponseItem
-import uz.qwerty.travelcarsdrivers.databinding.ItemCourseBinding
+import uz.qwerty.travelcarsdrivers.databinding.ItemNewCurrencyBinding
+import uz.qwerty.travelcarsdrivers.domain.models.NewCurrencyResponse
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.SuperAdapter
-import uz.qwerty.travelcarsdrivers.presentation.ui.base.SuperListAdapter
 
 
 /**
@@ -16,18 +12,26 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.base.SuperListAdapter
  * company
  * shahzod9933@gmail.com
  */
-class CourseAdapter : SuperAdapter<CurrencyItem>(
-    R.layout.item_course,
+class CourseAdapter : SuperAdapter<NewCurrencyResponse>(
+    R.layout.item_new_currency,
     { oldItem, newItem -> oldItem == newItem },
     { oldItem, newItem -> oldItem == newItem },
 ) {
 
-    override fun bind(t: CurrencyItem, view: View, adapterPosition: Int) {
-        val binding = ItemCourseBinding.bind(view)
-        binding.tv1.text = t.ccyNmRU
-        binding.tv2.text = t.rate
-        binding.tv4.text = t.date
+//    override fun bind(t: CurrencyItem, view: View, adapterPosition: Int) {
+//        val binding = ItemCourseBinding.bind(view)
+//        binding.tv1.text = t.ccyNmRU
+//        binding.tv2.text = t.rate
+//        binding.tv4.text = t.date
+//
+//    }
 
+    override fun bind(t: NewCurrencyResponse, view: View, adapterPosition: Int) {
+        val binding = ItemNewCurrencyBinding.bind(view)
+        binding.currency.text = t.title
+        binding.buy.text = t.nbuBuyPrice
+        binding.weSell.text = t.nbuCellPrice
+        binding.cb.text = t.cbPrice
     }
 
 

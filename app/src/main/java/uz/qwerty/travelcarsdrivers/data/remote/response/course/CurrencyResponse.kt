@@ -5,19 +5,19 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-class CurrencyResponse(
-    @field:SerializedName("data")
-    val data: List<CurrencyItem>,
-
-    @field:SerializedName("success")
-    val success: Boolean? = null,
-
-    @field:SerializedName("message")
-    val message: String? = null,
-
-    @field:SerializedName("error")
-    val error: List<Any?>? = null
-)
+//class CurrencyResponse(
+//    @field:SerializedName("data")
+//    val data: List<CurrencyItem>,
+//
+//    @field:SerializedName("success")
+//    val success: Boolean? = null,
+//
+//    @field:SerializedName("message")
+//    val message: String? = null,
+//
+//    @field:SerializedName("error")
+//    val error: List<Any?>? = null
+//)
 
 @Keep
 @Parcelize
