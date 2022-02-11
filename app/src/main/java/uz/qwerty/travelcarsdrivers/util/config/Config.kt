@@ -8,6 +8,8 @@ object Config {
 
 
     const val VALYUT = "https://cbu.uz/uz/arkhiv-kursov-valyut/"
+    const val NEW_VALYUT = "https://nbu.uz/exchange-rates/"
+
     const val WEATHER_URL = "https://api.openweathermap.org/data/2.5/"
     const val WEATHER_END_POINT =
         "weather?q=Tashkent&appid=4d8fb5b93d4af21d66a2948710284366&units=metric"

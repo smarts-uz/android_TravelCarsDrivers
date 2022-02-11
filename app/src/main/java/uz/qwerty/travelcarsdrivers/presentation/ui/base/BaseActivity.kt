@@ -26,7 +26,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.transparentStatusBar()
+        //window.transparentStatusBar()
         _binding = bindingActivity()
         binding = _binding as T
         setContentView(binding.root)
