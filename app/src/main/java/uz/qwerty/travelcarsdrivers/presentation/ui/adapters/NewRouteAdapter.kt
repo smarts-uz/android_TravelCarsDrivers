@@ -1,10 +1,14 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.text.style.BackgroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.RotateAnimation
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -47,14 +51,27 @@ class NewRouteAdapter(var onItemClickRv: OnItemClickRv) :
         var booking_id: Int? = null
         private val cities: TextView = itemView.findViewById(R.id.trip_cities)
         private val car: TextView = itemView.findViewById(R.id.trip_car)
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         private val status: Switch = itemView.findViewById(R.id.status)
         private val trip_booked: TextView = itemView.findViewById(R.id.trip_booked)
-
+        var sk: Boolean = true
+        @SuppressLint("SetTextI18n", "CheckResult")
         fun bindModel(banner: Route) {
             id = banner.id
             booking_id = banner.booking_id
 
-            itemView.addCarsList.setOnClickListener { onItemClickRv.clickItem(banner) }
+            itemView.addCarsList.setOnClickListener {
+                if (sk) {
+                    sk = false
+                    onItemClickRv.clickItem(banner)
+                    itemView.addCarsList.setBackgroundResource(R.color.colorOffWhite)
+                    itemView.txt_btn.setBackgroundResource(R.color.btn_bg)
+                    itemView.icon_true.setBackgroundResource(R.color.btn_bg)
+
+                }else {
+                    sk = true
+                }
+            }
 
             var citiesText = banner.city_from + " - " + banner.city_to
             if (banner.reverse == 1) {
@@ -137,6 +154,7 @@ class NewRouteAdapter(var onItemClickRv: OnItemClickRv) :
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setBanners(data: Route) {
         clear()
         banners.add(data)
@@ -144,6 +162,7 @@ class NewRouteAdapter(var onItemClickRv: OnItemClickRv) :
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     fun clear() {
         banners.clear()
         notifyDataSetChanged()
