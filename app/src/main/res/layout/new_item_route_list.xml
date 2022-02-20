@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bookingCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -23,6 +23,7 @@
             android:id="@+id/trip_cities"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:text="gifkdjlvcs;jfdv"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="0dp"
             android:textColor="@color/textBlack"
@@ -33,21 +34,13 @@
             android:id="@+id/trip_car"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:text="fgjkdvjfvlsjd"
             app:layout_constraintTop_toBottomOf="@id/trip_cities"
             android:layout_width="0dp"
             android:textColor="@color/textBlack"
             android:layout_height="wrap_content" />
 
-        <Switch
-            android:id="@+id/status"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/trip_car"
-            android:layout_marginTop="12dp"
-            android:layout_width="0dp"
-            android:textColor="@color/textBlack"
-            android:layout_height="wrap_content"
-            android:text="@string/status" />
+
 
         <TextView
             android:id="@+id/trip_booked"
@@ -61,14 +54,37 @@
             android:text="@string/booked"
             android:textColor="@color/colorAccent"
             android:layout_height="wrap_content" />
-        <ImageView
-            android:id="@+id/addCarsList"
-            android:layout_width="38dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/status"
-            android:layout_height="38dp"
-            android:src="@drawable/ic_add"
-            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/banner"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:id="@+id/addCarsList"
+                android:layout_width="wrap_content"
+                android:text="hfjdkl"
+                android:textColor="@color/textBlack"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/status"
+            android:layout_marginTop="12dp"
+            android:layout_width="0dp"
+            android:textColor="@color/textBlack"
+            android:layout_height="wrap_content"
+            android:text="dhjkcdskjc"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

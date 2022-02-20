@@ -1,5 +1,6 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -48,16 +49,12 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     return@OnNavigationItemSelectedListener true
                 }
-                /**
-                 *
-                 *  R.id.navigation_clock -> {
+                 R.id.navigation_clock -> {
                 val intent = Intent(this, TripsActivity::class.java)
                 intent.putExtra("type", "review")
                 startActivity(intent)
                 return@OnNavigationItemSelectedListener true
                 }
-                 *
-                 */
 
                 R.id.navigation_clock -> {
                     val intent = Intent(this, ServiceActivity::class.java)
@@ -75,6 +72,7 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
+    @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
@@ -124,24 +122,28 @@ class MainActivity : AppCompatActivity() {
         nav_view.selectedItemId = R.id.navigation_home
 
         floatingActionButton.setOnClickListener {
+            print("Action Button")
             val intent = Intent(this, TripsActivity::class.java)
             intent.putExtra("type", "active")
             startActivity(intent)
         }
 
         counts_active.setOnClickListener {
+            print("Action Button1")
             val intent = Intent(this, TripsActivity::class.java)
             intent.putExtra("type", "active")
             startActivity(intent)
         }
 
         counts_done.setOnClickListener {
+            print("Action Button2")
             val intent = Intent(this, TripsActivity::class.java)
             intent.putExtra("type", "done")
             startActivity(intent)
         }
 
         counts_proceed.setOnClickListener {
+            print("Action Button3")
             val intent = Intent(this, TripsActivity::class.java)
             intent.putExtra("type", "proceed")
             startActivity(intent)
@@ -161,6 +163,7 @@ class MainActivity : AppCompatActivity() {
         nav_view.selectedItemId = R.id.navigation_home
     }
 
+    @SuppressLint("CheckResult")
     private fun getProfile(apiKey: String?) {
         apiService.profile(apiKey).subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
@@ -191,6 +194,7 @@ class MainActivity : AppCompatActivity() {
         toolbar_title.text = name
     }
 
+    @SuppressLint("CheckResult")
     private fun getActives(apiKey: String?) {
         apiService.lastActive(apiKey)
             .subscribeOn(Schedulers.io())
@@ -213,6 +217,7 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
+    @SuppressLint("CheckResult")
     private fun getBanners(apiKey: String?) {
         apiService.tripsBanners(apiKey)
             .subscribeOn(Schedulers.io())
@@ -238,6 +243,7 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
+    @SuppressLint("CheckResult", "SetTextI18n")
     private fun getCounts(apiKey: String?) {
         apiService.counts(apiKey)
             .subscribeOn(Schedulers.io())

@@ -53,6 +53,7 @@
             app:layout_constraintTop_toBottomOf="@id/trip_cities"
             android:layout_width="0dp"
             android:textColor="@color/textBlack"
+            android:textStyle="bold"
             android:layout_height="wrap_content" />
 
         <TextView

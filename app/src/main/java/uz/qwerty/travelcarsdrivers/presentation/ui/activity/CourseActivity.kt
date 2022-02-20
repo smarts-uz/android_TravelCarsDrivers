@@ -7,7 +7,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.qwerty.travelcarsdrivers.R
 import uz.qwerty.travelcarsdrivers.databinding.ActivityCourseBinding
 import uz.qwerty.travelcarsdrivers.domain.models.NewCurrencyResponse
-import uz.qwerty.travelcarsdrivers.presentation.ui.adapters.CourseAdapter
 import uz.qwerty.travelcarsdrivers.presentation.ui.base.BaseActivity
 import uz.qwerty.travelcarsdrivers.presentation.ui.common.course.CourseViewModel
 import uz.qwerty.travelcarsdrivers.presentation.ui.extensions.gone
@@ -18,7 +17,6 @@ import uz.qwerty.travelcarsdrivers.presentation.ui.state.*
 class CourseActivity : BaseActivity<ActivityCourseBinding>() {
 
 
-    private val courseAdapter by lazy { CourseAdapter() }
     private val vm: CourseViewModel by viewModels()
 
     override fun bindingActivity(): ActivityCourseBinding {
@@ -31,7 +29,6 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
     }
 
     private fun loadView() {
-        binding.rv.adapter = courseAdapter
         //vm.getAllCourse()
         vm.getCourse()
     }
@@ -120,7 +117,6 @@ class CourseActivity : BaseActivity<ActivityCourseBinding>() {
                         newList.addAll(listOf(newCurrencyResponse))
                     }
                 }
-                courseAdapter.submitList(newList)
 
             }
             else -> {}

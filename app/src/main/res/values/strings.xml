@@ -32,7 +32,8 @@
     <string name="no_routes">Нет маршрутов</string>
 
     <string name="trips">Заявки</string>
-    <string name="service">Сервис</string>
+    <string name="service">ИНФОРМАЦИЯ</string>
+    <string name="weather_text">Прогноз погоды</string>
     <string name="trips_done">Обработанные</string>
     <string name="trips_active">Текущие</string>
     <string name="trips_proceed">На рассмотрении</string>
@@ -41,18 +42,19 @@
     <string name="booking_toolbar_title">Текущая поездка</string>
     <string name="booking_tab_client">Заказчик</string>
     <string name="booking_tab_route">Детали поездки</string>
-    <string name="client">Клиент</string>
+    <string name="client">Имя</string>
     <string name="price">Стоимость поездки</string>
     <string name="payStatus">Статус оплаты</string>
-    <string name="car_name">Авто</string>
+    <string name="car_name">Транспортъ</string>
     <string name="point_a">Пункт А</string>
     <string name="point_b">Пункт Б</string>
     <string name="point_c">Пункт В</string>
-    <string name="comment">Коментарий клиента</string>
+    <string name="comment">Комментарий</string>
     <string name="paid">Оплачено</string>
     <string name="not_paid">Не оплачено</string>
-    <string name="no_comment">Нет коментариев</string>
-    <string name="calendar">Календарь</string>
+    <string name="no_comment">Нет комментариев</string>
+    <string name="calendar">График работы</string>
+    <string name="data">Дата поездки </string>
 
     <string name="user_name">ФИО</string>
     <string name="user_licence">Номер вод. прав</string>

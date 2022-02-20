@@ -1,5 +1,6 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
+import android.annotation.SuppressLint
 import android.icu.util.Calendar
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,7 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
         loadObserver()
     }
 
+    @SuppressLint("SetTextI18n", "SimpleDateFormat")
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadObserver() {
         vm.weatherLiveData.observe(this) {

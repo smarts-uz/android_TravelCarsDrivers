@@ -3,10 +3,10 @@
     <item android:state_pressed="false" >
         <shape>
             <solid
-                android:color="#ffffff" />
+                android:color="#39D397" />
             <stroke
                 android:width="1px"
-                android:color="#ffffff" />
+                android:color="#39D397" />
             <corners android:radius="20dp" >
             </corners>
         </shape>

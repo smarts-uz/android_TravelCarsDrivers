@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2708333333333333" />
         <entry key="..\:/TravelCarsDrivers/app/src/main/res/drawable/banner.xml" value="0.2169230769230769" />
         <entry key="..\:/TravelCarsDrivers/app/src/main/res/layout/activity_booking.xml" value="0.1" />
         <entry key="..\:/TravelCarsDrivers/app/src/main/res/layout/activity_profile.xml" value="0.18" />
@@ -13,14 +14,22 @@
         <entry key="app/src/main/res/drawable-xhdpi/base_dialog_background.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable-xhdpi/base_rounded_button.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_success.xml" value="0.22407407407407406" />
-        <entry key="app/src/main/res/drawable/banner.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/banner.xml" value="0.25030670166015623" />
+        <entry key="app/src/main/res/drawable/banner_bottom.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bottomlayout.xml" value="0.21979166666666666" />
+        <entry key="app/src/main/res/drawable/button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/button_add.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/dotted_line.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.23425925925925925" />
         <entry key="app/src/main/res/drawable/ic_clock.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/drawable/ic_cloud_line.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/drawable/ic_money.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.23425925925925925" />
+        <entry key="app/src/main/res/layout-v21/activity_booking.xml" value="0.23641304347826086" />
+        <entry key="app/src/main/res/layout-v21/activity_calendar.xml" value="0.23641304347826086" />
         <entry key="app/src/main/res/layout-v21/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout-v21/activity_profile.xml" value="0.23641304347826086" />
+        <entry key="app/src/main/res/layout/activity_booking.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.1685185185185185" />
         <entry key="app/src/main/res/layout/activity_course.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19947916666666668" />
@@ -28,21 +37,30 @@
         <entry key="app/src/main/res/layout/activity_no_connection.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/activity_pin.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_service.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_service.xml" value="0.32300702207577153" />
         <entry key="app/src/main/res/layout/activity_trips.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_weather.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_weather.xml" value="0.26773681640625" />
         <entry key="app/src/main/res/layout/base_dialog_layout.xml" value="0.26666666666666666" />
-        <entry key="app/src/main/res/layout/content_calendar.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/button.xml" value="0.23641304347826086" />
+        <entry key="app/src/main/res/layout/content_booking.xml" value="0.23641304347826086" />
+        <entry key="app/src/main/res/layout/content_calendar.xml" value="0.41465515136718756" />
         <entry key="app/src/main/res/layout/content_course.xml" value="0.20185185185185187" />
+        <entry key="app/src/main/res/layout/content_pin.xml" value="0.23641304347826086" />
         <entry key="app/src/main/res/layout/content_profile.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_booking_done.xml" value="0.23641304347826086" />
         <entry key="app/src/main/res/layout/item_actives_layout.xml" value="0.20092592592592592" />
+        <entry key="app/src/main/res/layout/item_banner_layout.xml" value="0.23641304347826086" />
+        <entry key="app/src/main/res/layout/item_booking_list.xml" value="0.23641304347826086" />
         <entry key="app/src/main/res/layout/item_course.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_network_state.xml" value="0.23641304347826086" />
         <entry key="app/src/main/res/layout/item_new_currency.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/item_review_list.xml" value="0.23641304347826086" />
         <entry key="app/src/main/res/layout/item_route_list.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/new_item_route_list.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/new_item_route_list.xml" value="0.34387420654296874" />
         <entry key="app/src/main/res/layout/notification.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15677083333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.23425925925925925" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.178" />
       </map>
     </option>
   </component>

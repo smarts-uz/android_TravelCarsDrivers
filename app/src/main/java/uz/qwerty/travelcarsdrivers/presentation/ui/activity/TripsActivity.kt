@@ -1,5 +1,6 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +46,7 @@ class TripsActivity : AppCompatActivity(), ListItemClickListener {
     private lateinit var bookingAdapter: BookingAdapter
 
 
+    @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trips)
@@ -243,6 +245,7 @@ class TripsActivity : AppCompatActivity(), ListItemClickListener {
         false
     }
 
+    @SuppressLint("CheckResult")
     private fun getProfile(apiKey: String?) {
         apiService.profile(apiKey).subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.computation())
