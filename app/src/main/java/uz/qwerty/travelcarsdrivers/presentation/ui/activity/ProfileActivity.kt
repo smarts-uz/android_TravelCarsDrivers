@@ -1,5 +1,6 @@
 package uz.qwerty.travelcarsdrivers.presentation.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -30,6 +31,7 @@ class ProfileActivity : AppCompatActivity() {
     var apiService = TravelCarsApi.createService(true)
     private lateinit var user: User
 
+    @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -247,7 +249,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setTitle(name: String?)
     {
-        toolbar_title.text = name
+       // toolbar_title.text = name
     }
 
     private fun setData()
